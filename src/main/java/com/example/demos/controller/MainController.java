@@ -44,4 +44,11 @@ public class MainController {
   public @ResponseBody Optional<User> getUser(@RequestParam(value = "id")int id){
     return userRepository.findById(id);
   }
+
+
+  @GetMapping(path="/remove")
+  public @ResponseBody String removeUser(@RequestParam(value = "id")int id){
+    userRepository.deleteById(id);
+    return id + " Has been removed";
+  }
 }
