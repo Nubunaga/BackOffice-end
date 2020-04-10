@@ -14,8 +14,7 @@ class DemossApplicationTests {
 	@Test
 	void contextLoads() {
 		final User n = new User();
-		n.setName("netanel");
-		n.setEmail("test@test.com");
+		n.setnewUser("netanel", "test@test.com");
 		assertEquals("The message is not the same", "netanel", n.getName());
 		assertEquals("The message is not the same", "test@test.com", n.getEmail());
 	}

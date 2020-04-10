@@ -1,6 +1,6 @@
 
 
-package com.example.demos.view;
+package com.example.demos.controller;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +29,7 @@ public class MainController {
     // @RequestParam means it is a parameter from the GET or POST request
 
     User n = new User();
-    n.setName(name);
-    n.setEmail(email);
+    n.setnewUser(name, email);
     userRepository.save(n);
     return "Saved";
   }
