@@ -1,0 +1,8 @@
+applications:
+- name: backOffice
+  path: 'target/demos-0.0.1-SNAPSHOT.jar'
+  memory: 256M
+  service: 
+  - Db2-j9
+  buildpacks: 
+  - https://github.com/cloudfoundry/java-buildpack.git
