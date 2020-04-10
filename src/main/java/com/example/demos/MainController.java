@@ -1,14 +1,3 @@
-/**
- * add new user: 
- * $ curl localhost:8080/demo/add -d name=First -d email=someemail@someemailprovider.com
- * 
- * Check all users: 
- * $ curl 'localhost:8080/demo/all'
- * 
- * Check Specific:
- * $ curl 'localhost:8080/demo/user?id=2'
- * 
- */
 
 
 package com.example.demos;
