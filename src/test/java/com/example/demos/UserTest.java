@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest
-class DemossApplicationTests {
+class UserTest {
 	private Users users;
 	@Test
 	void contextLoads() {
