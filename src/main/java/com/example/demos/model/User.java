@@ -15,13 +15,24 @@ public class User {
 
   private String email;
 
-  public void setnewUser(String name,String mail){
+  private String password;
+
+  public void setnewUser(String name,String mail,String pass){
     setEmail(mail);
     setName(name);
+    setpassword(pass);
   }
 
   public Integer getId() {
     return id;
+  }
+
+  public String getPassword(){
+    return password;
+  }
+  
+  private void setpassword(String pass){
+    this.password = pass;
   }
 
   public void setId(Integer id) {
