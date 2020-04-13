@@ -57,6 +57,7 @@ public class MainControllerUser {
       , @RequestParam String email, @RequestParam String password){
         Users n = new Users();
         n.setnewUser(name,email,password);
+        assert(n.getName()==name & n.getEmail() == email & n.getPassword() == password);
         userRepository.save(n);
   }
   
