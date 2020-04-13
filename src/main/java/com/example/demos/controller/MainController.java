@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.demos.model.*;
 
 
+//TODO: Login for client.
+//TODO: Only allow acces from certain ip adress,see https://gist.github.com/johnmiroki/cab2c6d7300db4f637e3a441bf0232fe
+
+
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 @CrossOrigin(origins = "http://localhost:3000")
