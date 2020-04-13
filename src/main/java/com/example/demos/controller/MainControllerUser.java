@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.example.demos.model.*;
+import com.example.demos.db.*;
 
 /**
  * This class is the main controller for the api handling the <em> "/user" </em>
