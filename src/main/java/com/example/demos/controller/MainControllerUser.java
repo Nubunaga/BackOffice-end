@@ -55,7 +55,7 @@ public class MainControllerUser {
   @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
   public @ResponseBody void addNewUser (@RequestParam String name
       , @RequestParam String email, @RequestParam String password){
-        User n = new User();
+        Users n = new Users();
         n.setnewUser(name,email,password);
         userRepository.save(n);
   }
@@ -80,7 +80,7 @@ public class MainControllerUser {
    */
   @GetMapping(path="/user")
   @ResponseStatus(HttpStatus.OK) // 200
-  public @ResponseBody Optional<User> getUser(@RequestParam(value = "id")int id){
+  public @ResponseBody Optional<Users> getUser(@RequestParam(value = "id")int id){
     return userRepository.findById(id);
   }
 
