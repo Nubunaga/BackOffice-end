@@ -39,7 +39,7 @@ import com.example.demos.db.*;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/user") // This means URL's start with /demo (after Application path)
-public class MainControllerUser {
+public class ControllerUser {
   @Autowired 
 
   private UserRepository userRepository;

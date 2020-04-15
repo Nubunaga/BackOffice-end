@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/advert") // This means URL's start with /demo (after Application path)
-public class MainControllerAdvertisment {
+public class ControllerAdvertisment {
 
     @Autowired
     private AdvertismentRepository advertismentRepository;
@@ -38,7 +38,6 @@ public class MainControllerAdvertisment {
      * This method handles the adding of a new advertisment by taking the Post data body
      * and apply the information from there
      * @return A string that informs the user that a new add is made 
-     * TODO: add this!!!
      */
     @PostMapping(path="/add")
     public @ResponseBody String addAdv(@RequestParam String url, @RequestParam String interest
@@ -54,7 +53,6 @@ public class MainControllerAdvertisment {
      * This method handles if the user wants to delete an advertisment from the database
      * @param id contains the id to be deleted.
      * @return A string that informs of this deletion
-     * TODO: add this!!!
      */
     @GetMapping(path="/delete")
     public @ResponseBody String deleteAdv(@RequestParam int id){
