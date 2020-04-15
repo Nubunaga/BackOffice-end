@@ -28,11 +28,12 @@ It also contains the DB-class <b> Users </b> that is the "table-class" that spri
 
 <b> .settings </b> contains the filés for some of the drivers to work for java 8 but are not important for the project.
 
-##Pom.xml 
+## Pom.xml 
 Is the file that the mvn project is built uppon and list all the dependencies, project information, artifacts after compilations and maven declarations that is needed to compile this java program using maven.
 
-##Dependencies
+## Dependencies
 In order to run the program as i have, download [Maven 3.2](https://maven.apache.org/download.cgi) (or above).
+
 You also need JDK 8 or later.
 
 
