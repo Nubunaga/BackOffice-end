@@ -1,8 +1,19 @@
+
 package com.example.demos.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * This class is the hibernate @Entity class that allows hibernate to 
+ * wire this class into the database. This thus will create or use a 
+ * current table in the db and take the informations from the columns 
+ * depending on the attributes in the class; email,pass_hash and agency.
+ * 
+ * @author Netanel Avraham Eklind
+ * @version 1.0
+ * TODO: hash the password.
+ */
 
 
 @Entity 
@@ -14,6 +25,12 @@ public class Users {
   private String pass_hash;
   private String agency;
 
+  /**
+   * This method creates a new user with the given arguments.
+   * @param name                String of a name arguemnt
+   * @param mail                String of a mail argument
+   * @param pass                String of a hashed password argument.
+   */
   public void setnewUser(String name,String mail,String pass){
     setName(name);
     setEmail(mail);

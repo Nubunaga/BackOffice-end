@@ -1,9 +1,14 @@
 package com.example.demos.controller;
 
+import com.example.demos.db.AdvertismentRepository;
+import com.example.demos.model.Advertisement_video;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -19,14 +24,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 
  * 
  * @author Netanel Avraham Eklind
- * @version 0.0.1
- * TODO: add video, delete video
+ * @version 0.0.3
+ * 
  */
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/advert") // This means URL's start with /demo (after Application path)
 public class MainControllerAdvertisment {
 
+    @Autowired
+    private AdvertismentRepository advertismentRepository;
     /**
      * This method handles the adding of a new advertisment by taking the Post data body
      * and apply the information from there
@@ -34,18 +41,25 @@ public class MainControllerAdvertisment {
      * TODO: add this!!!
      */
     @PostMapping(path="/add")
-    public @ResponseBody String addAdv(){
-        return "This is the add page!";
+    public @ResponseBody String addAdv(@RequestParam String url, @RequestParam String interest
+    ,@RequestParam String time){
+        
+        Advertisement_video adv = new Advertisement_video();
+        adv.addNewAdv(Integer.parseInt(interest), Integer.parseInt(time), url);
+        advertismentRepository.save(adv);
+        return "Saved";
     }
 
     /**
      * This method handles if the user wants to delete an advertisment from the database
+     * @param id contains the id to be deleted.
      * @return A string that informs of this deletion
      * TODO: add this!!!
      */
     @GetMapping(path="/delete")
-    public @ResponseBody String deleteAdv(){
-        return "This is the delete page!";
+    public @ResponseBody String deleteAdv(@RequestParam int id){
+        advertismentRepository.deleteById(id);
+        return "Video deleted";
     }
 
 }
