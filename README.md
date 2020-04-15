@@ -40,5 +40,5 @@ You also need JDK 8 or later.
 ## Compile and run
 
 To compile the program, run the following maven command <code> mvn package </code>.
-To then be able to run the program, be in the directory you placed your code in <code>cd %Path_to_Program%/BackOffice-end </code>.
+To then be able to run the program, be in the directory you placed your code in <code>cd %Path_to_Program%\BackOffice-end </code>.
 Then run the program, run <code> java -jar target/demos-0.0.1-SNAPSHOT.jar </code> (you have to change the "target/demos-0.0.1-SNAPSHOT.jar" depending on where it is and if there is another artifact name
