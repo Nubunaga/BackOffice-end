@@ -1,18 +1,13 @@
 package com.example.demos;
 
-import com.example.demos.db.Users;
+import com.example.demos.model.Users;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
-
-@ContextConfiguration(classes = Users.class)
-@SpringBootTest
 class UserTest {
 	@Autowired
 	private Users users = new Users();

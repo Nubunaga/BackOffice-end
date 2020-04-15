@@ -7,7 +7,7 @@ import com.example.demos.controller.MainControllerUser;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.example.demos.db.*;
+import com.example.demos.model.*;
 
 @SpringBootTest
 public class MainControllerUserTest {
