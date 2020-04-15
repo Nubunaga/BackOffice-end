@@ -1,17 +1,23 @@
 package com.example.demos;
 
+import java.util.Properties;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
 
 
 @SpringBootApplication
-@EnableConfigurationProperties(confProp.class)
 public class DemossApplication {
 
 	public static void main(String[] args) {
-		
-		SpringApplication.run(DemossApplication.class, args);
+		SpringApplication app = new SpringApplication(DemossApplication.class);
+
+		Properties properties = new Properties();
+		properties.put("spring.datasource.username", System.getenv("SQLName"));
+		properties.put("spring.datasource.password", System.getenv("SQLPass"));
+		app.setDefaultProperties(properties);
+		app.run(args);
 	}
 
 }
