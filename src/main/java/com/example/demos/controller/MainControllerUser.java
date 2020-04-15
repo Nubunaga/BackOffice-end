@@ -30,8 +30,7 @@ import com.example.demos.db.*;
  * whom handles the user creation and how to represent the user in json format using the spring bean.
  * 
  * @author Netanel Avraham Eklind
- * @version 0.0.1
- * TODO: Add,delete
+ * @version 1.0.0
  */
 
 
@@ -53,12 +52,13 @@ public class MainControllerUser {
    */
   @PostMapping(path="/add")
   @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
-  public @ResponseBody void addNewUser (@RequestParam String name
+  public @ResponseBody String addNewUser (@RequestParam String name
       , @RequestParam String email, @RequestParam String password){
         Users n = new Users();
         n.setnewUser(name,email,password);
         assert(n.getName()==name & n.getEmail() == email & n.getPassword() == password);
         userRepository.save(n);
+        return "Saved";
   }
   
   /**
@@ -69,8 +69,10 @@ public class MainControllerUser {
    */
    @GetMapping(path="/remove")
    @ResponseStatus(HttpStatus.NO_CONTENT) // 204
-    public @ResponseBody void removeUser(@RequestParam(value = "id")int id){
+    public @ResponseBody String removeUser(@RequestParam(value = "id")String id){
       userRepository.deleteById(id);
+      assert(userRepository.existsById(id) == false); 
+      return "Removed";
       }
   
   /**
@@ -81,9 +83,7 @@ public class MainControllerUser {
    */
   @GetMapping(path="/user")
   @ResponseStatus(HttpStatus.OK) // 200
-  public @ResponseBody Optional<Users> getUser(@RequestParam(value = "id")int id){
+  public @ResponseBody Optional<Users> getUser(@RequestParam(value = "id")String id){
     return userRepository.findById(id);
   }
-
-
 }
