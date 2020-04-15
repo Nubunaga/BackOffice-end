@@ -30,3 +30,14 @@ It also contains the DB-class <b> Users </b> that is the "table-class" that spri
 
 ##Pom.xml 
 Is the file that the mvn project is built uppon and list all the dependencies, project information, artifacts after compilations and maven declarations that is needed to compile this java program using maven.
+
+##Dependencies
+In order to run the program as i have, download [Maven 3.2](https://maven.apache.org/download.cgi) (or above).
+You also need JDK 8 or later.
+
+
+## Compile and run
+
+To compile the program, run the following maven command <code> mvn package </code>.
+To then be able to run the program, be in the directory you placed your code in <code>cd %Path_to_Program%/BackOffice-end </code>.
+Then run the program, run <code> java -jar target/demos-0.0.1-SNAPSHOT.jar </code> (you have to change the "target/demos-0.0.1-SNAPSHOT.jar" depending on where it is and if there is another artifact name
