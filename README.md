@@ -15,18 +15,25 @@ The code structure follows the <em> MVC </em> architecture thus allowing for bet
 The structure goes as followed:
 
 <b>Controller:</b>
+
 Contaning the Main controller for the <em> /user </em> API calls to the backend.
 
 <b>Model:</b>
+
 contains the buissness logic of the server with the following files that the server uses:
 
 <b>DB:</b>
+
 Contains the DB-class <b>UserRepository.java</b> that extends <b>CrudRepository</b> to allow fot the db calls to the server.
 It also contains the DB-class <b> Users </b> that is the "table-class" that spring @hibernate will autowire into the database.
 
-<b>target: </b> is the module that contains the jar file after the <code> mvn package </code> have compiled. It contains all the compiled classes.
+<b>target: </b>
 
-<b> .settings </b> contains the filés for some of the drivers to work for java 8 but are not important for the project.
+is the module that contains the jar file after the <code> mvn package </code> have compiled. It contains all the compiled classes.
+
+<b> .settings </b> 
+
+contains the filés for some of the drivers to work for java 8 but are not important for the project.
 
 ## Pom.xml 
 Is the file that the mvn project is built uppon and list all the dependencies, project information, artifacts after compilations and maven declarations that is needed to compile this java program using maven.
