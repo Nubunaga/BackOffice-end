@@ -1,12 +1,12 @@
 package com.example.demos;
 
-import com.example.demos.controller.MainControllerUser;
+
 import com.example.demos.model.Users;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
-import java.util.Optional;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 class UserTest {
 	@Autowired
-	private MainControllerUser main = new MainControllerUser();
+	//private MainControllerUser main = new MainControllerUser();
 	private Users users = new Users();
 
 	@Test

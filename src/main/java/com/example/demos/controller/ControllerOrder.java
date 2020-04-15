@@ -11,6 +11,7 @@ package com.example.demos.controller;
  * @author Netanel Avraham Eklind
  * @version 0.0.1 
  */
-public class MainControllerOrder {
+
+public class ControllerOrder {
 
 }
