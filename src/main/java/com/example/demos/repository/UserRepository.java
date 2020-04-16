@@ -1,4 +1,4 @@
-package com.example.demos.db;
+package com.example.demos.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import com.example.demos.model.Users;

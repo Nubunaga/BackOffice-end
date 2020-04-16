@@ -1,6 +1,6 @@
 package com.example.demos.controller;
 
-import com.example.demos.db.AdvertismentRepository;
+import com.example.demos.repository.*;
 import com.example.demos.model.Advertisement_video;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.demos.db;
+package com.example.demos.repository;
 
 import com.example.demos.model.Advertisement_video;
 
