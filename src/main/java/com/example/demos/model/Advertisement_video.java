@@ -36,10 +36,6 @@ public class Advertisement_video {
      setLength(length_sec);
      setURL(url);
     }
-
-    private void setID(Integer id){
-        this.id = id;
-    }
     private void setInterest(int interest){
         this.interest = interest;
     }

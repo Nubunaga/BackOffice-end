@@ -1,7 +1,8 @@
 package com.example.demos;
 
 
-import com.example.demos.model.Users;
+import com.example.demos.model.*;
+
 
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
@@ -38,28 +39,4 @@ class UserTest {
 		assertTrue("The name is not correct", "123" == users.getPassword());
 	}
 
-
-    // @Test
-    // public void contextLoads() throws Exception{
-    //     assertThat(main).isNotNull();
-    // }
-
-    // @Test
-    // public void addTest(){
-    //    String response = main.addNewUser("name", "email", "password");
-    //    assertTrue("Add is not working", response == "Saved");
-    // }
-
-    // @Test
-    // public void removeTest(){
-    //    String response = main.removeUser("name");
-    //    assertTrue("Add is not working", response == "Saved");
-    // }
-
-
-    // @Test
-    // public void findUser(){
-    //    Optional<Users> response = main.getUser("name");
-    //    assertTrue("Not a valied class is returned", response != null);
-    // }
 }
