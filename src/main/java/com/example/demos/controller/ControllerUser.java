@@ -59,9 +59,13 @@ public class ControllerUser {
   public @ResponseBody String addNewUser (@RequestParam String name
       , @RequestParam String email, @RequestParam String password){
         Users n = new Users();
-        n.setnewUser(name,email,password);
-        assert(n.getName()==name & n.getEmail() == email & n.getPassword() == password);
-        userRepository.save(n);
+        try {
+          n.setnewUser(name,email,password);
+          assert(n.getName()==name & n.getEmail() == email & n.getPassword() == password);
+          userRepository.save(n);
+        } catch (Exception e) {
+          return e.getMessage();
+        }
         return "Saved";
   }
   
@@ -74,8 +78,12 @@ public class ControllerUser {
    @GetMapping(path="/remove")
    @ResponseStatus(HttpStatus.NO_CONTENT) // 204
     public @ResponseBody String removeUser(@RequestParam(value = "id")String id){
-      userRepository.deleteById(id);
-      assert(userRepository.existsById(id) == false); 
+      try {
+        userRepository.deleteById(id);
+        assert(userRepository.existsById(id) == false); 
+      } catch (Exception e) {
+        return e.getMessage();
+      }
       return "Removed";
       }
   
@@ -88,6 +96,10 @@ public class ControllerUser {
   @GetMapping(path="/user")
   @ResponseStatus(HttpStatus.OK) // 200
   public @ResponseBody Optional<Users> getUser(@RequestParam(value = "id")String id){
-    return userRepository.findById(id);
+    try {
+      return userRepository.findById(id);
+    } catch (Exception e) {
+      return null;
+    }
   }
 }

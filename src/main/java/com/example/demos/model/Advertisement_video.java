@@ -32,9 +32,10 @@ public class Advertisement_video {
      * @param url                   is the url link to the video.
      */
     public void addNewAdv(int interest, int length_sec,String url){
-     setInterest(interest);
-     setLength(length_sec);
-     setURL(url);
+        if( interest <= 0  || length_sec <= 0 || url == null) throw new IllegalArgumentException();
+        setInterest(interest);
+        setLength(length_sec);
+        setURL(url);
     }
     private void setInterest(int interest){
         this.interest = interest;

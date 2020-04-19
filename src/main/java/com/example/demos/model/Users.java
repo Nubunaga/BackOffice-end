@@ -32,6 +32,7 @@ public class Users {
    * @param pass                String of a hashed password argument.
    */
   public void setnewUser(String name,String mail,String pass){
+    if (name == null || mail == null || pass == null) throw new IllegalArgumentException("No valid argument given");
     setName(name);
     setEmail(mail);
     setpassword(pass);
@@ -53,7 +54,6 @@ public class Users {
   private void setpassword(String pass){
     this.pass_hash = pass;
   }
-
 
   public String getName() {
     return username;

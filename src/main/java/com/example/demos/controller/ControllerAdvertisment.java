@@ -42,11 +42,14 @@ public class ControllerAdvertisment {
     @PostMapping(path="/add")
     public @ResponseBody String addAdv(@RequestParam String url, @RequestParam String interest
     ,@RequestParam String time){
-        
-        Advertisement_video adv = new Advertisement_video();
-        adv.addNewAdv(Integer.parseInt(interest), Integer.parseInt(time), url);
-        advertismentRepository.save(adv);
-        return "Saved";
+        try {
+            Advertisement_video adv = new Advertisement_video();
+            adv.addNewAdv(Integer.parseInt(interest), Integer.parseInt(time), url);
+            advertismentRepository.save(adv);
+            return "Saved";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 
     /**
@@ -56,8 +59,12 @@ public class ControllerAdvertisment {
      */
     @GetMapping(path="/delete")
     public @ResponseBody String deleteAdv(@RequestParam int id){
-        advertismentRepository.deleteById(id);
-        return "Video deleted";
+        try {
+            advertismentRepository.deleteById(id);
+            return "Video deleted";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 
 }

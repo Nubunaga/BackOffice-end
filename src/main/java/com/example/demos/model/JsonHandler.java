@@ -49,7 +49,7 @@ public class JsonHandler {
      * 
      * @param orderJson Contains the order in JSON string format.
      * @return The order to be saved into the database.
-     * @throws ParseException
+     * @throws ParseException if the convertion does not contain integer.
      */
     public Order newOrder(String orderJson) throws ParseException {
         JsonObject jsonObject = JsonParser.parseString(orderJson).getAsJsonObject();

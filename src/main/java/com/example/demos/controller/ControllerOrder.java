@@ -73,9 +73,13 @@ public class ControllerOrder {
      */
     @PostMapping(path = "/add")
     public @ResponseBody String newOrder(@RequestBody String orderJson) throws ParseException {
-        Order order =jsonHandler.newOrder(orderJson);
-        orderrep.save(order);
-        return "New order saved";
+        try {       
+            Order order =jsonHandler.newOrder(orderJson);
+            orderrep.save(order);
+            return "New order saved";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 
     /**
@@ -86,8 +90,13 @@ public class ControllerOrder {
      */
     @GetMapping(path = "/history")
     public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName)
-    {
-        List<OrderHistoryDTO> list = orderHistory.getHistory(userName);
-        return list;
+    {   
+        try {     
+            List<OrderHistoryDTO> list = orderHistory.getHistory(userName);
+            return list;
+        } catch (Exception e) {
+            System.out.print("Not a valid user");
+            return null;
+        }
     }
 }

@@ -16,10 +16,10 @@ public class Advertisement_order {
 public void newAdvOrder(Integer video, int orders,long start_time_epoch,
 long end_time_epoch)
 {
- setVideo(video);
- setOrders(orders); 
- setStart_time_epoch(start_time_epoch);
- setEnd_time_epoch(end_time_epoch);  
+    setVideo(video);
+    setOrders(orders); 
+    setStart_time_epoch(start_time_epoch);
+    setEnd_time_epoch(end_time_epoch);  
 }
 
 
