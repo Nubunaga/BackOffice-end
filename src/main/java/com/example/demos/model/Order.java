@@ -70,7 +70,7 @@ public class Order {
      
      @Override
      public String toString() {
-         return "Order: [ OrderId: " + this.id + ",credits: " + this.credits + "user: " + this.users + " ]";
+         return "Order: [ OrderId: " + this.id + ", credits: " + this.credits + ", user: " + this.users + " ]";
      }
 
 }

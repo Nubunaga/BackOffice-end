@@ -48,14 +48,17 @@ public class JsonHandler {
      * and takes all the information from it to be used.
      * 
      * @param orderJson Contains the order in JSON string format.
+     * @param flag Is there if there is a need to test the method.
      * @return The order to be saved into the database.
      * @throws ParseException if the convertion does not contain integer.
      */
     public Order newOrder(String orderJson) throws ParseException {
+        if(orderJson == null) throw new IllegalArgumentException();
         JsonObject jsonObject = JsonParser.parseString(orderJson).getAsJsonObject();
         int credits;
         String userName;
         JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
+        Order order = new Order();
 
         this.orderid = jsonObject.get("id").getAsInt();
         credits = jsonObject.get("credits").getAsInt();
@@ -63,9 +66,8 @@ public class JsonHandler {
         this.startTime = jsonObject.get("Startdate").getAsString();
         this.endTime = jsonObject.get("Enddate").getAsString();
 
-        Order order = new Order();
         order.addNewOrder(this.orderid, credits, userName);
-        addVideo(jsonarray);
+        if(jsonarray.size() != 0) addVideo(jsonarray);
         return order;
     }
 
