@@ -45,5 +45,5 @@ class OrderTest {
             assertTrue("Wrong exception caught", e instanceof IllegalArgumentException);
         }
     }
-    
+ 
 }
