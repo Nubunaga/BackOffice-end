@@ -1,60 +1,56 @@
 package com.example.demos;
 
-
 import com.example.demos.model.*;
+import com.example.demos.utils.Config;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-
 
 import static org.junit.Assert.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 
+@SpringBootTest
+@ContextConfiguration(classes = Config.class) 
 class UserTest {
-	@Autowired
-	//private MainControllerUser main = new MainControllerUser();
-	private Users users;
-
-	@Before
-	void setup(){
-		users = new Users();
-	}
 	
+	
+	private Users users = new Users();
+
 	@Test
 	public void contexLoads() throws Exception {
-		assertThat(users).isNotNull();
+		assertThat(this.users).isNotNull();
 	}
 
 	@Test
 	void nameTest() {
-		users.setnewUser("Netanel", "mail@mail.com", "123");
-		assertTrue("The name is not correct", "Netanel" == users.getName());
+		this.users.setnewUser("Netanel", "mail@mail.com", "123");
+		assertTrue("The name is not correct", "Netanel" == this.users.getName());
 	}
 	@Test
 	void emailTest() {
-		users.setnewUser("Netanel", "mail@mail.com", "123");
-		assertTrue("The name is not correct", "mail@mail.com" == users.getEmail());
+		this.users.setnewUser("Netanel", "mail@mail.com", "123");
+		assertTrue("The name is not correct", "mail@mail.com" == this.users.getEmail());
 	}
 	@Test
 	void passTest() {
-		users.setnewUser("Netanel", "mail@mail.com", "123");
+		this.users.setnewUser("Netanel", "mail@mail.com", "123");
 		assertTrue("The name is not correct", "123" == users.getPassword());
 	}
 
 	@Test
 	void setnewUserTest(){
-		users.setnewUser("name", "mail", "pass");
-		assertTrue("Not adding correct", testName(users.getName()) && testMail(users.getEmail()) && testPass(users.getPassword()));
+		this.users.setnewUser("name", "mail", "pass");
+		assertTrue("Not adding correct", testName(this.users.getName()) && testMail(this.users.getEmail()) && testPass(this.users.getPassword()));
 	}
 
 
 	@Test
 	void illegalArguemntTest(){
 		try {
-			users.setnewUser(null, "mail", "pass");
+			this.users.setnewUser(null, "mail", "pass");
 		} catch (Exception e) {
 			assertTrue("Not correct", e instanceof IllegalArgumentException);
 		}
