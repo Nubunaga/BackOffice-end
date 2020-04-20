@@ -1,0 +1,9 @@
+{
+    "id":0,
+    "user":"Netanel",
+    "video":[
+        {"interest":9999,"length":9999,"url":"URL"}
+    ],
+    "Startdate":"2020-04-17T00:03:14.100z",
+    "Enddate":"2020-06-17T00:03:14.100z"
+}
