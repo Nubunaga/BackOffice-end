@@ -28,7 +28,8 @@ public class Order {
      * @param credits           The given credit to spend on the advertisment.
      * @param user              The user that ordered this advertisment.
      */
-     void addNewOrder(int id,int credits,String user){
+    public void addNewOrder(int id,int credits,String user){
+        if(id <= 0 || credits < 0 || user == null) throw new IllegalArgumentException();
         this.id = id;
         this.credits = credits;
         this.users = user;
