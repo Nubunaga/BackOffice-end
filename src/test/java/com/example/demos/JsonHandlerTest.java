@@ -67,7 +67,7 @@ public class JsonHandlerTest {
     @Test
     public void newOrderNoVideo(){
         try {
-            assertTrue("An order is not returned", jsonHandler.newOrder(json) != null);
+            assertTrue("An order is not returned", jsonHandler.newOrder(jsonNoVideo) != null);
         } catch (Exception e) {
             assertFalse("Something went wrong", true);
         }
