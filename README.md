@@ -24,6 +24,9 @@ Contaning the Main controller for the <em> /user </em> API calls to the backend.
 
 contains the buissness logic of the server with the following files that the server uses:
 
+<b>Exceptions:</b>
+Contains all the "Exceptions" files that are used in this program.
+
 <b>repository:</b>
 
 Contains the DB-class <b>UserRepository.java</b> that extends <b>CrudRepository</b> to allow fot the db calls to the server.
