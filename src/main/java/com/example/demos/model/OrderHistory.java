@@ -4,6 +4,7 @@ package com.example.demos.model;
 import java.util.*;
 
 import com.example.demos.dto.OrderHistoryDTO;
+import com.example.demos.exceptions.NoUserFoundException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
 import com.example.demos.repository.OrderRepository;
@@ -36,15 +37,18 @@ public class OrderHistory {
     private OrderRepository orderRepo;
 
     /**
-     * This methods builds the DTO from the given username by calling
-     * the crud repositories and using it to get all the information needed.
-     * @param username              contains the unsername to get history from
+     * This methods builds the DTO from the given username by calling the crud
+     * repositories and using it to get all the information needed.
+     * 
+     * @param username contains the unsername to get history from
      * @return a list of DTO's contaning all orders made by user.
+     * @throws Exception
      */
-    public List<OrderHistoryDTO> getHistory(String username){
+    public List<OrderHistoryDTO> getHistory(String username) throws NoUserFoundException {
         List<OrderHistoryDTO> returnList = new ArrayList<>();
 
         List<Order> list = orderRepo.findByusers(username);
+        if(list.size() == 0) throw new NoUserFoundException("No user with name "+username+" found");
         for(Order o: list){
             OrderHistoryDTO oHDTO = new OrderHistoryDTO();
             oHDTO.setOrderId(o.getID());
