@@ -15,6 +15,8 @@ package com.example.demos.controller;
 
 import java.text.ParseException;
 import java.util.List;
+import org.springframework.http.HttpStatus;
+
 
 import com.example.demos.dto.OrderHistoryDTO;
 import com.example.demos.model.JsonHandler;
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * 
@@ -68,10 +71,11 @@ public class ControllerOrder {
      * 
      * @param order contains the JSON object that contains all the nessecary
      *              information
-     * @return
+     * @return A string to inform a new order is made
      * @throws ParseException
      */
     @PostMapping(path = "/add")
+    @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
     public @ResponseBody String newOrder(@RequestBody String orderJson) throws ParseException {
         try {       
             Order order =jsonHandler.newOrder(orderJson);
@@ -89,6 +93,7 @@ public class ControllerOrder {
      * @return returns an array of orders showing orderId, videos reported on it that order.
      */
     @GetMapping(path = "/history")
+    @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName)
     {   
         try {     
