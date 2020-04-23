@@ -10,7 +10,7 @@ This code is written in java with the framework <b><em> Spring </em></b> to crea
 Is done each time the spring program is compiled since the command <code> mvn package </code> follows pom.xml file when compiled and thus tests all the files in the test directory before creating the jar
 The test files can be found inside <i> src/test/java/com/example/demos </i>
 
-![CI](https://github.com/Projektgrupp17/BackOffice-backend/workflows/CI/badge.svg)
+![Java testing CI with maven](https://github.com/Projektgrupp17/BackOffice-backend/workflows/Java%20testing%20CI%20with%20maven/badge.svg)
 
 ## Structure
 The code structure follows the <em> MVC </em> architecture thus allowing for better structuring and truly seperate the classes.
@@ -23,6 +23,9 @@ Contaning the Main controller for the <em> /user </em> API calls to the backend.
 <b>Model:</b>
 
 contains the buissness logic of the server with the following files that the server uses:
+
+<b>Exceptions:</b>
+Contains all the "Exceptions" files that are used in this program.
 
 <b>repository:</b>
 
