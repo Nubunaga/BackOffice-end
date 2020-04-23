@@ -1,5 +1,4 @@
 package com.example.demos.controller;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -78,7 +77,7 @@ public class ControllerUser {
    */
    @GetMapping(path="/remove")
    @ResponseStatus(HttpStatus.NO_CONTENT) // 204
-    public @ResponseBody String removeUser(@RequestParam(value = "id")String id){
+    public @ResponseBody String removeUser(@RequestParam String id){
       try {
         if (userRepository.existsById(id) == false) throw new Exception();
         userRepository.deleteById(id);
@@ -96,8 +95,9 @@ public class ControllerUser {
    */
   @GetMapping(path="/user")
   @ResponseStatus(HttpStatus.OK) // 200
-  public @ResponseBody String getUser(@RequestParam(value = "id")String id){
+  public @ResponseBody String getUser(@RequestParam String id){
     try {
+      System.out.println(userRepository.findById(id).get().getName());
       return userRepository.findById(id).get().getName();
     } catch (Exception e) {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No user found",e);

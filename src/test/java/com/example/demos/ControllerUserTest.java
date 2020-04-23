@@ -1,8 +1,11 @@
 package com.example.demos;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -12,23 +15,33 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
-
+import java.util.Optional;
 
 import com.example.demos.controller.ControllerUser;
+import com.example.demos.model.Users;
 import com.example.demos.repository.UserRepository;
 import com.example.demos.utils.Config;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = Config.class)
 @WebMvcTest(controllers = ControllerUser.class)
+@AutoConfigureMockMvc
 public class ControllerUserTest {
 
     @Autowired
     private MockMvc mockMvc;
-    
+
     @MockBean
     private UserRepository userRepository;
+    
+
+    @Before
+    public void setut(){
+        this.mockMvc = standaloneSetup(new DemossApplication()).build();
+    }
+
 
     @Test
     public void userAddMessageTest() throws Exception{
@@ -58,14 +71,14 @@ public class ControllerUserTest {
 
     @Test
     public void userRemoveTest() throws Exception{
-        ResultMatcher created = MockMvcResultMatchers.status().isNoContent();
-        ResultMatcher removed = MockMvcResultMatchers.content().string("Removed");
+        ResultMatcher removed = MockMvcResultMatchers.status().isNoContent();
+
+        Mockito.when(userRepository.existsById("First")).thenReturn(true); //When mockito sees a call is made, cheats and say true!
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/user/remove")
         .param("id", "First");
 
         this.mockMvc.perform(builder)
-        .andExpect(created)
         .andExpect(removed);
     }
 
@@ -83,15 +96,16 @@ public class ControllerUserTest {
     @Test
     public void findUserTest() throws Exception{
         ResultMatcher isOk = MockMvcResultMatchers.status().isOk();
-        ResultMatcher resultJson = MockMvcResultMatchers.content().contentType("application/json");
+        Optional<Users> user = Optional.of(new Users());
+
+        Mockito.when(userRepository.findById("First")).thenReturn(user);
 
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/user/user")
         .param("id", "First");
 
        this.mockMvc.perform(builder)
-        .andExpect(isOk)
-        .andExpect(resultJson);
+        .andExpect(isOk);
     }
 
     @Test
