@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
 
 /**
  * This class is the Main controller for the Advertisment <code> /advert </code> pathing.
@@ -40,6 +42,7 @@ public class ControllerAdvertisment {
      * @return A string that informs the user that a new add is made 
      */
     @PostMapping(path="/add")
+    @ResponseStatus(HttpStatus.CREATED)//201
     public @ResponseBody String addAdv(@RequestParam String url, @RequestParam String interest
     ,@RequestParam String time){
         try {
@@ -58,6 +61,7 @@ public class ControllerAdvertisment {
      * @return A string that informs of this deletion
      */
     @GetMapping(path="/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)//204
     public @ResponseBody String deleteAdv(@RequestParam int id){
         try {
             advertismentRepository.deleteById(id);

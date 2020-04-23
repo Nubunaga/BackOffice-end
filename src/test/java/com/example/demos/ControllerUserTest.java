@@ -31,7 +31,7 @@ public class ControllerUserTest {
     private UserRepository userRepository;
 
     @Test
-    public void userAddMessage() throws Exception{
+    public void userAddMessageTest() throws Exception{
         ResultMatcher created = MockMvcResultMatchers.status().isCreated();
         ResultMatcher saved = MockMvcResultMatchers.content().string("Saved");
 
@@ -42,6 +42,18 @@ public class ControllerUserTest {
         this.mockMvc.perform(builder)
         .andExpect(created)
         .andExpect(saved);
+    }
+
+
+    @Test
+    public void userAddMessageWrongInputTest() throws Exception{
+        ResultMatcher code = MockMvcResultMatchers.status().isBadRequest();
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/user/add")
+        .param("name", "Val")
+        .param("password","pass");
+        this.mockMvc.perform(builder)
+        .andExpect(code);
     }
 
     @Test
@@ -58,6 +70,17 @@ public class ControllerUserTest {
     }
 
     @Test
+    public void userRemoveFailTest() throws Exception{
+        ResultMatcher code = MockMvcResultMatchers.status().isNotFound();
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/user/remove")
+        .param("id", "This_is_the_Test_1234278");
+
+        this.mockMvc.perform(builder)
+        .andExpect(code);
+    }
+
+    @Test
     public void findUserTest() throws Exception{
         ResultMatcher isOk = MockMvcResultMatchers.status().isOk();
         ResultMatcher resultJson = MockMvcResultMatchers.content().contentType("application/json");
@@ -69,6 +92,18 @@ public class ControllerUserTest {
        this.mockMvc.perform(builder)
         .andExpect(isOk)
         .andExpect(resultJson);
+    }
+
+    @Test
+    public void findUserNotFoundTest() throws Exception{
+        ResultMatcher isOk = MockMvcResultMatchers.status().isNotFound();
+
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/user/user")
+        .param("id", "This_is_the_Test_1234278");
+
+       this.mockMvc.perform(builder)
+        .andExpect(isOk);
     }
 
 }

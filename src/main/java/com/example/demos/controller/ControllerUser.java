@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.demos.model.*;
 import com.example.demos.repository.*;
@@ -63,10 +64,10 @@ public class ControllerUser {
           n.setnewUser(name,email,password);
           assert(n.getName()==name & n.getEmail() == email & n.getPassword() == password);
           userRepository.save(n);
+          return "Saved";
         } catch (Exception e) {
           return e.getMessage();
         }
-        return "Saved";
   }
   
   /**
@@ -79,12 +80,12 @@ public class ControllerUser {
    @ResponseStatus(HttpStatus.NO_CONTENT) // 204
     public @ResponseBody String removeUser(@RequestParam(value = "id")String id){
       try {
+        if (userRepository.existsById(id) == false) throw new Exception();
         userRepository.deleteById(id);
-        assert(userRepository.existsById(id) == false); 
+        return "Removed";
       } catch (Exception e) {
-        return e.getMessage();
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No user found",e);
       }
-      return "Removed";
       }
   
   /**
@@ -95,11 +96,11 @@ public class ControllerUser {
    */
   @GetMapping(path="/user")
   @ResponseStatus(HttpStatus.OK) // 200
-  public @ResponseBody Optional<Users> getUser(@RequestParam(value = "id")String id){
+  public @ResponseBody String getUser(@RequestParam(value = "id")String id){
     try {
-      return userRepository.findById(id);
+      return userRepository.findById(id).get().getName();
     } catch (Exception e) {
-      return null;
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No user found",e);
     }
   }
 }
