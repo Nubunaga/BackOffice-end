@@ -12,7 +12,6 @@ import javax.persistence.Id;
  * 
  * @author Netanel Avraham Eklind
  * @version 1.0
- * TODO: hash the password.
  */
 
 

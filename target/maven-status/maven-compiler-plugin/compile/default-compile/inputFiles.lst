@@ -12,4 +12,5 @@ C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\dem
 C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\demos\repository\UserRepository.java
 C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\demos\controller\ControllerUser.java
 C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\demos\model\JsonHandler.java
+C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\demos\exceptions\NoUserFoundException.java
 C:\Users\Netanel\Desktop\test\test4\backoffice-end\src\main\java\com\example\demos\DemossApplication.java

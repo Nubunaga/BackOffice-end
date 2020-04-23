@@ -1,7 +1,12 @@
 package com.example.demos.exceptions;
 
 public class NoUserFoundException extends Exception{
-    public NoUserFoundException(String errorString){
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    public NoUserFoundException(String errorString) {
         super(errorString);
     }
 }
