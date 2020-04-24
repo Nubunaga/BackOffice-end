@@ -48,6 +48,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * 
  * @author Netanel Avraham Eklind
  * @version 0.0.1
+ * 
+ * TODO: Implementing a JWT checker!
  */
 
 @Controller

@@ -1,6 +1,7 @@
 package com.example.demos;
 
 import com.example.demos.controller.ControllerAdvertisment;
+import com.example.demos.model.JsonHandler;
 import com.example.demos.repository.AdvertismentRepository;
 import com.example.demos.utils.Config;
 
@@ -9,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,20 +30,22 @@ public class ControllerAdvertismentTest {
     @MockBean
     private AdvertismentRepository advertismentRepository;
 
+    @MockBean
+    private JsonHandler jsonHandler;
+
 
     @Test
     public void addVideoTest() throws Exception{
         ResultMatcher code = MockMvcResultMatchers.status().isCreated();
-        ResultMatcher returnRes = MockMvcResultMatchers.content().string("Saved");
-
+        String json = "{\"id\":9999,\"user\":\"Netanel\",\"credits\":10,\"video\":" + "[{\"interest\":9999,\"length\":9999,\"url\":\"URL\"}],"
+        + "\"Startdate\":\"2020-04-17T00:03:14.100z\"," + "\"Enddate\":\"2020-06-17T00:03:14.100z\"}";
+        
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/advert/add")
-        .param("url", "Url")
-        .param("interest","10")
-        .param("time", "1");
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(json);
 
         this.mockMvc.perform(builder)
-        .andExpect(code)
-        .andExpect(returnRes);
+        .andExpect(code);
     }
 
 

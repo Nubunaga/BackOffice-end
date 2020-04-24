@@ -1,5 +1,6 @@
 package com.example.demos;
 
+import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.model.*;
 import com.example.demos.utils.Config;
 
@@ -70,6 +71,26 @@ public class JsonHandlerTest {
             assertTrue("An order is not returned", jsonHandler.newOrder(jsonNoVideo) != null);
         } catch (Exception e) {
             assertFalse("Something went wrong", true);
+        }
+    }
+
+
+    @Test
+    public void newVideoAddTest(){
+        try {
+            assertTrue("A new video order does not work on standalone", jsonHandler.addNewVideo(json).contains("Saved"));
+        } catch (Exception e) {
+            assertFalse("Something went wrong", true);
+        }
+    }
+
+
+    @Test
+    public void newVideoNoVideoTest(){
+        try {
+            jsonHandler.addNewVideo(jsonNoVideo);
+        } catch (Exception e) {
+            assertTrue("It does not work", e instanceof NoVideoException);
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.demos.model;
 import java.text.ParseException;
 import java.time.Instant;
 
+import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
 import com.google.gson.JsonArray;
@@ -10,6 +11,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -69,6 +71,21 @@ public class JsonHandler {
         order.addNewOrder(this.orderid, credits, userName);
         if(jsonarray.size() != 0) addVideo(jsonarray);
         return order;
+    }
+
+    public String addNewVideo(String Json) throws Exception {
+        try {
+            JsonObject jsonObject = JsonParser.parseString(Json).getAsJsonObject();
+            this.orderid = jsonObject.get("id").getAsInt();
+            this.startTime = jsonObject.get("Startdate").getAsString();
+            this.endTime = jsonObject.get("Enddate").getAsString();
+            JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
+            if(jsonarray.size() == 0) throw new NoVideoException("no video found");
+            addVideo(jsonarray);
+            return "Saved";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 
     /**

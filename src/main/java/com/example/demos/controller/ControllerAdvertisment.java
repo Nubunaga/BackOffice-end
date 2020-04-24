@@ -1,16 +1,21 @@
 package com.example.demos.controller;
 
 import com.example.demos.repository.*;
-import com.example.demos.model.Advertisement_video;
+
+import com.example.demos.model.JsonHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+
 import org.springframework.http.HttpStatus;
 
 /**
@@ -27,7 +32,7 @@ import org.springframework.http.HttpStatus;
  * 
  * @author Netanel Avraham Eklind
  * @version 0.0.3
- * 
+ * TODO: Implementing a JWT checker!
  */
 
 @Controller // This means that this class is a Controller
@@ -36,6 +41,9 @@ public class ControllerAdvertisment {
 
     @Autowired
     private AdvertismentRepository advertismentRepository;
+
+    @Autowired
+    private JsonHandler jsonHandler;
     /**
      * This method handles the adding of a new advertisment by taking the Post data body
      * and apply the information from there
@@ -43,18 +51,14 @@ public class ControllerAdvertisment {
      */
     @PostMapping(path="/add")
     @ResponseStatus(HttpStatus.CREATED)//201
-    public @ResponseBody String addAdv(@RequestParam String url, @RequestParam String interest
-    ,@RequestParam String time){
-        try {
-            Advertisement_video adv = new Advertisement_video();
-            adv.addNewAdv(Integer.parseInt(interest), Integer.parseInt(time), url);
-            advertismentRepository.save(adv);
-            return "Saved";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
+    public @ResponseBody String addAdv(@RequestBody String jsonString){
+            try {
+                
+                return jsonHandler.addNewVideo(jsonString);
+            } catch (Exception e) {
+                return e.getMessage();
+            }
     }
-
     /**
      * This method handles if the user wants to delete an advertisment from the database
      * @param id contains the id to be deleted.
