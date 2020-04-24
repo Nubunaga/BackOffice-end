@@ -17,7 +17,7 @@ import java.text.ParseException;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 
-
+import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.Order;
@@ -30,10 +30,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * 
@@ -60,9 +62,12 @@ public class ControllerOrder {
 
     @Autowired
     private JsonHandler jsonHandler;
-    
+
     @Autowired
     private OrderHistory orderHistory;
+
+    @Autowired
+    private JWTDecoder jwtDecoder;
 
     /**
      * This method handles the handling of a new order that is sent, it is a post
@@ -76,13 +81,15 @@ public class ControllerOrder {
      */
     @PostMapping(path = "/add")
     @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
-    public @ResponseBody String newOrder(@RequestBody String orderJson) throws ParseException {
-        try {       
+    public @ResponseBody String newOrder(@RequestBody String orderJson, @RequestHeader String authorization)
+            throws ParseException {
+        try {      
+            jwtDecoder.jwtDecode(authorization);
             Order order =jsonHandler.newOrder(orderJson);
             orderrep.save(order);
             return "New order saved";
         } catch (Exception e) {
-            return e.getMessage();
+            return e.toString();
         }
     }
 
@@ -94,14 +101,14 @@ public class ControllerOrder {
      */
     @GetMapping(path = "/history")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName)
+    public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName, @RequestHeader String authorization)
     {   
         try {     
+            jwtDecoder.jwtDecode(authorization);
             List<OrderHistoryDTO> list = orderHistory.getHistory(userName);
             return list;
         } catch (Exception e) {
-            System.out.print("Not a valid user");
-            return null;
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "History can not be reached atm");
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demos;
 
+import com.example.demos.Security.JWTDecoder;
 import com.example.demos.controller.ControllerOrder;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.OrderHistory;
@@ -41,6 +42,9 @@ public class ControllerOrderTest {
     @MockBean
     private OrderHistory orderHistory;
     
+    @MockBean
+    private JWTDecoder jwtDecoder;
+    
     @Before
     public void setut(){
         this.mockMvc = standaloneSetup(new DemossApplication()).build();
@@ -56,7 +60,8 @@ public class ControllerOrderTest {
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/order/add")
         .contentType(MediaType.APPLICATION_JSON)
-        .content(json);
+        .content(json)
+        .header("authorization", "Testing");;
 
         this.mockMvc.perform(builder)
         .andExpect(created);
@@ -68,7 +73,8 @@ public class ControllerOrderTest {
         ResultMatcher created = MockMvcResultMatchers.status().isBadRequest();
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/order/add")
-        .contentType(MediaType.APPLICATION_JSON);
+        .contentType(MediaType.APPLICATION_JSON)
+        .header("authorization", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(created);
@@ -82,7 +88,8 @@ public class ControllerOrderTest {
 
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/order/history")
-        .param("userName", "Netanel");
+        .param("userName", "Netanel")
+        .header("authorization", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(ok)
