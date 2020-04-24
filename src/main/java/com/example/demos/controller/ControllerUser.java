@@ -31,7 +31,6 @@ import com.example.demos.repository.*;
  * This class is dependent on the class {@link User} and {@link UserRepository} since they are the one 
  * whom handles the user creation and how to represent the user in json format using the spring bean.
  * 
- * TODO: Call auth from backend.
  * 
  * @author Netanel Avraham Eklind
  * @version 1.0.0

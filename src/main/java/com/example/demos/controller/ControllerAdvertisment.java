@@ -1,7 +1,8 @@
 package com.example.demos.controller;
 
 import com.example.demos.repository.*;
-
+import com.example.demos.Security.JWTDecoder;
+import com.example.demos.exceptions.WrongAuthLevelException;
 import com.example.demos.model.JsonHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +33,6 @@ import org.springframework.http.HttpStatus;
  * 
  * @author Netanel Avraham Eklind
  * @version 0.0.3
- * TODO: Implementing a JWT checker!
  */
 
 @Controller // This means that this class is a Controller
@@ -44,6 +44,9 @@ public class ControllerAdvertisment {
 
     @Autowired
     private JsonHandler jsonHandler;
+
+    @Autowired
+    private JWTDecoder jwtDecoder;
     /**
      * This method handles the adding of a new advertisment by taking the Post data body
      * and apply the information from there
@@ -51,12 +54,12 @@ public class ControllerAdvertisment {
      */
     @PostMapping(path="/add")
     @ResponseStatus(HttpStatus.CREATED)//201
-    public @ResponseBody String addAdv(@RequestBody String jsonString){
+    public @ResponseBody String addAdv(@RequestBody String jsonString,@RequestHeader String authorization){
             try {
-                
+                jwtDecoder.jwtDecode(authorization);
                 return jsonHandler.addNewVideo(jsonString);
             } catch (Exception e) {
-                return e.getMessage();
+                return e.toString();
             }
     }
     /**
