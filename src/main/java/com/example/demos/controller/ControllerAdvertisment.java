@@ -2,7 +2,6 @@ package com.example.demos.controller;
 
 import com.example.demos.repository.*;
 import com.example.demos.Security.JWTDecoder;
-import com.example.demos.exceptions.WrongAuthLevelException;
 import com.example.demos.model.JsonHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,12 +68,13 @@ public class ControllerAdvertisment {
      */
     @GetMapping(path="/delete")
     @ResponseStatus(HttpStatus.NO_CONTENT)//204
-    public @ResponseBody String deleteAdv(@RequestParam int id){
+    public @ResponseBody String deleteAdv(@RequestParam int id,@RequestHeader String authorization){
         try {
+            jwtDecoder.jwtDecode(authorization);
             advertismentRepository.deleteById(id);
             return "Video deleted";
         } catch (Exception e) {
-            return e.getMessage();
+            return e.toString();
         }
     }
 

@@ -4,16 +4,15 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 
-import javax.servlet.annotation.ServletSecurity;
-
 import com.example.demos.exceptions.WrongAuthLevelException;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.*;
 
-@ServletSecurity
+
 @Service
 public class JWTDecoder {
 
@@ -34,14 +33,14 @@ public class JWTDecoder {
         }
     }
 
-    private JwtParser jws;
 
-    private static Keys keys = new Keys();
+    @Autowired
+    private Keys keys;
 
 
     public void jwtDecode(String key)throws Exception{
         try {
-             jws = Jwts.parser()
+            JwtParser jws = Jwts.parser()
              .setSigningKey(keys.getPublic());
             jws.parse(key);
         } catch (JwtException e) {
