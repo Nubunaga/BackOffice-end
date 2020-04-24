@@ -1,5 +1,6 @@
 package com.example.demos;
 
+import com.example.demos.Security.JWTDecoder;
 import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.model.*;
 import com.example.demos.utils.Config;
@@ -9,20 +10,22 @@ import static org.junit.Assert.*;
 
 import java.text.ParseException;
 
-import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
 
-@RunWith(SpringRunner.class)
+
 @ContextConfiguration(classes = Config.class) 
 @SpringBootTest
 public class JsonHandlerTest {
     @Autowired
     JsonHandler jsonHandler;
+
+    @MockBean
+    private JWTDecoder jwtDecoder;
     
     String json = "{\"id\":9999,\"user\":\"Netanel\",\"credits\":10,\"video\":" + "[{\"interest\":9999,\"length\":9999,\"url\":\"URL\"}],"
             + "\"Startdate\":\"2020-04-17T00:03:14.100z\"," + "\"Enddate\":\"2020-06-17T00:03:14.100z\"}";

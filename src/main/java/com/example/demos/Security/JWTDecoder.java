@@ -16,7 +16,7 @@ import io.jsonwebtoken.*;
 @Service
 public class JWTDecoder {
 
-    private static class Keys{
+    public static class Keys{
         PublicKey pub = null;
 
 

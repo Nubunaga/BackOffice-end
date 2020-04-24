@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.demos.OrderHistoryTest" time="0.587" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.demos.ControllerUserTest" time="3.216" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -55,9 +55,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="getOrderHistoryTest" classname="com.example.demos.OrderHistoryTest" time="0"/>
-  <testcase name="orderHistoryInformationTest" classname="com.example.demos.OrderHistoryTest" time="0"/>
-  <testcase name="contextLoad" classname="com.example.demos.OrderHistoryTest" time="0"/>
-  <testcase name="getOrderHistoryNoUserTest" classname="com.example.demos.OrderHistoryTest" time="0"/>
-  <testcase name="orderHistoryDateTest" classname="com.example.demos.OrderHistoryTest" time="0.001"/>
+  <testcase name="userRemoveFailTest" classname="com.example.demos.ControllerUserTest" time="0"/>
+  <testcase name="userAddMessageTest" classname="com.example.demos.ControllerUserTest" time="0"/>
+  <testcase name="findUserTest" classname="com.example.demos.ControllerUserTest" time="0.001"/>
+  <testcase name="userAddMessageWrongInputTest" classname="com.example.demos.ControllerUserTest" time="0.088"/>
+  <testcase name="findUserNotFoundTest" classname="com.example.demos.ControllerUserTest" time="0"/>
+  <testcase name="userRemoveTest" classname="com.example.demos.ControllerUserTest" time="0"/>
 </testsuite>

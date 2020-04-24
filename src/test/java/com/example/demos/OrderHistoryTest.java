@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertTrue;
 
+import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
 import com.example.demos.exceptions.NoUserFoundException;
 import com.example.demos.model.OrderHistory;
@@ -21,6 +23,10 @@ public class OrderHistoryTest {
 
     @Autowired
     OrderHistory orderHistory;
+
+    @MockBean
+    private JWTDecoder jwtDecoder;
+
 
     @Test
     public void contextLoad() throws Exception {
