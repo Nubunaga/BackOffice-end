@@ -56,8 +56,8 @@ public class OrderHistoryTest {
     public void orderHistoryInformationTest() {
         OrderHistoryDTO oDTO;
         try {
-            oDTO = orderHistory.getHistory("Netanel").get(1);
-            assertTrue("information is not found!", oDTO.getUser().contains("Netanel"));
+            oDTO = orderHistory.getHistory("SolStrom").get(0);
+            assertTrue("information is not found!", oDTO.getUser().contains("SolStrom"));
         } catch (Exception e) {
             e.printStackTrace();
         }
