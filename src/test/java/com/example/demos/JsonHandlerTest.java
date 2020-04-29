@@ -49,17 +49,6 @@ public class JsonHandlerTest {
     }
 
     @Test
-    public void voidCorrectInfoTest(){
-        try {
-            Order order =jsonHandler.newOrder(json);
-            assertEquals("Order: [ OrderId: 9999, credits: 10, user: Netanel ]", order.toString());
-        } catch (Exception e) {
-            System.out.print(e);
-            assertFalse("Something went wrong", true);
-        }
-    }
-
-    @Test
     public void newOrderNullTest(){
         try {
             assertTrue("An order is not returned", jsonHandler.newOrder(json) != null);
