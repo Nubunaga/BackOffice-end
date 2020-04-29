@@ -3,6 +3,23 @@
 ## Info
 This is the server side implementation of the backoffice client microservice that handles the call to the database, orderflow and user information to be used by the frontend application of the backoffice.
 
+## Endpoints
+* **/advert/add**
+
+<b>POST</b> a json object in body
+
+* **/advert/delete**
+
+**GET** parameter id that deletes the video
+
+* **/order/add** 
+
+**POST** a json object in body
+
+* **/order/history**
+
+**GET** parameter id that 
+
 ## Enviroment
 This code is written in java with the framework <b><em> Spring </em></b> to create a connection to the database and structuring the program. The website enviroment we use to deploy the API is on heruko.
 
