@@ -21,7 +21,7 @@ public class Order {
     @Id
     private String id;
     private Integer credits;
-    private String users;
+    private String user;
 
     /**
      * Allows for a new order to be put forward.
@@ -33,7 +33,7 @@ public class Order {
         if(id ==null || credits < 0 || user == null) throw new IllegalArgumentException();
         this.id = id;
         this.credits = credits;
-        this.users = user;
+        this.user = user;
      }
 
      public String getID(){
@@ -45,7 +45,7 @@ public class Order {
      }
 
      public String getUser(){
-         return users;
+         return user;
      }
 
       /**
@@ -66,12 +66,12 @@ public class Order {
       * @param user the user to set
       */
      public void setUser(String user) {
-         this.users = user;
+         this.user = user;
      }
      
      @Override
      public String toString() {
-         return "Order: [ OrderId: " + this.id + ", credits: " + this.credits + ", user: " + this.users + " ]";
+         return "Order: [ OrderId: " + this.id + ", credits: " + this.credits + ", user: " + this.user + " ]";
      }
 
 }
