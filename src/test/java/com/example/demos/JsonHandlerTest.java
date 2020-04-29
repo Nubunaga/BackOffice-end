@@ -39,33 +39,6 @@ public class JsonHandlerTest {
         assertTrue("Jsonhandler object is not made", jsonHandler != null);
     }
 
-    @Test
-    public void newOrderTest() {
-        try {
-            assertTrue("An order is not returned", jsonHandler.newOrder(json) != null);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void newOrderNullTest(){
-        try {
-            assertTrue("An order is not returned", jsonHandler.newOrder(json) != null);
-        } catch (Exception e) {
-            assertTrue("There is not a correct exception thrown", e instanceof IllegalArgumentException);
-        }
-    }
-
-    @Test
-    public void newOrderNoVideo(){
-        try {
-            assertTrue("An order is not returned", jsonHandler.newOrder(jsonNoVideo) != null);
-        } catch (Exception e) {
-            assertFalse("Something went wrong", true);
-        }
-    }
-
 
     @Test
     public void newVideoAddTest(){

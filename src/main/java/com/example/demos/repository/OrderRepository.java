@@ -8,5 +8,5 @@ import com.example.demos.model.*;
 
 public interface OrderRepository extends CrudRepository<Order, Integer> {
     
-    List<Order> findByusers(String user);
+    List<Order> findByuser(String user);
 }

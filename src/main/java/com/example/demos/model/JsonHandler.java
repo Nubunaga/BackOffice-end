@@ -7,6 +7,7 @@ import java.util.UUID;
 import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
+import com.example.demos.repository.OrderRepository;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -37,6 +38,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class JsonHandler {
+
+    @Autowired
+    private OrderRepository orderrep;
+
     @Autowired
     private AdvertismentRepository advertismentRepository;
 
@@ -55,7 +60,7 @@ public class JsonHandler {
      * @return The order to be saved into the database.
      * @throws ParseException if the convertion does not contain integer.
      */
-    public Order newOrder(String orderJson) throws ParseException {
+    public String newOrder(String orderJson) throws ParseException {
         if(orderJson == null) throw new IllegalArgumentException();
         JsonObject jsonObject = JsonParser.parseString(orderJson).getAsJsonObject();
         int credits;
@@ -70,8 +75,9 @@ public class JsonHandler {
         this.endTime = jsonObject.get("Enddate").getAsString();
 
         order.addNewOrder(this.orderid, credits, userName);
+        orderrep.save(order);
         if(jsonarray.size() != 0) addVideo(jsonarray);
-        return order;
+        return order.getID();
     }
 
     public String addNewVideo(String Json) throws Exception {
@@ -112,7 +118,7 @@ public class JsonHandler {
     }
 
     private long epochConv(String time) throws ParseException {
-        long epoch = Instant.parse(time).toEpochMilli();
+        long epoch = Instant.parse(time).toEpochMilli()/1000;
         return epoch;
     }
 

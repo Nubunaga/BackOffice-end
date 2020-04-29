@@ -47,7 +47,7 @@ public class OrderHistory {
     public List<OrderHistoryDTO> getHistory(String username) throws NoUserFoundException {
         List<OrderHistoryDTO> returnList = new ArrayList<>();
 
-        List<Order> list = orderRepo.findByusers(username);
+        List<Order> list = orderRepo.findByuser(username);
         if(list.size() == 0) throw new NoUserFoundException("No user with name "+username+" found");
         for(Order o: list){
             OrderHistoryDTO oHDTO = new OrderHistoryDTO();
@@ -76,7 +76,8 @@ public class OrderHistory {
     }
 
     private String convert(long time_epoch) {
-       return Instant.ofEpochMilli(time_epoch).toString();
+        long res = time_epoch * 1000;
+       return Instant.ofEpochMilli(res).toString();
     }
 
     private List<Optional<Advertisement_video>> findVideo(Order o) {

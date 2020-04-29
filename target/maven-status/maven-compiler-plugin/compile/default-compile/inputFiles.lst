@@ -3,15 +3,12 @@ C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\dem
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\controller\ControllerOrder.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Advertisement_order.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\AdvertismentRepository.java
-C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Users.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\AdvertismentOrderRepository.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\OrderRepository.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\NoVideoException.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Order.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\OrderHistory.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Advertisement_video.java
-C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\UserRepository.java
-C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\controller\ControllerUser.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\JsonHandler.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\NoUserFoundException.java
 C:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\WrongAuthLevelException.java

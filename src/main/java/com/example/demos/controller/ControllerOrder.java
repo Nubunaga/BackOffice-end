@@ -72,9 +72,7 @@ public class ControllerOrder {
             throws ParseException {
         try {      
             jwtDecoder.jwtDecode(authorization);
-            Order order =jsonHandler.newOrder(orderJson);
-            orderrep.save(order);
-            return order.getID();
+            return jsonHandler.newOrder(orderJson);
         } catch (Exception e) {
             return e.getMessage();
         }
