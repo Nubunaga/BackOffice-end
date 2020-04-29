@@ -36,8 +36,9 @@ public class JWTDecoder {
         try {
             JwtParser jws = Jwts.parser()
              .setSigningKey(keys.getPublic());
-            jws.parse(key);
+             jws.parse(key);
         } catch (JwtException e) {
+            System.out.println(e);
             throw new WrongAuthLevelException("User not allowed", e);
         }
     }

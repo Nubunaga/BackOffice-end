@@ -2,6 +2,7 @@ package com.example.demos.model;
 
 import java.text.ParseException;
 import java.time.Instant;
+import java.util.UUID;
 
 import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.repository.AdvertismentOrderRepository;
@@ -42,7 +43,7 @@ public class JsonHandler {
     @Autowired
     private AdvertismentOrderRepository advertismentOrderRepository;
 
-    private Integer orderid;
+    private String  orderid;
     private String startTime, endTime;
 
     /**
@@ -62,7 +63,7 @@ public class JsonHandler {
         JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
         Order order = new Order();
 
-        this.orderid = jsonObject.get("id").getAsInt();
+        this.orderid = UUID.randomUUID().toString();
         credits = jsonObject.get("credits").getAsInt();
         userName = jsonObject.get("user").getAsString();
         this.startTime = jsonObject.get("Startdate").getAsString();
@@ -76,7 +77,7 @@ public class JsonHandler {
     public String addNewVideo(String Json) throws Exception {
         try {
             JsonObject jsonObject = JsonParser.parseString(Json).getAsJsonObject();
-            this.orderid = jsonObject.get("id").getAsInt();
+            this.orderid = jsonObject.get("id").getAsString();
             this.startTime = jsonObject.get("Startdate").getAsString();
             this.endTime = jsonObject.get("Enddate").getAsString();
             JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();

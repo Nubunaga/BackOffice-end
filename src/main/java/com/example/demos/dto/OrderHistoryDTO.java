@@ -12,7 +12,7 @@ import java.util.*;
 
 public class OrderHistoryDTO {
 
-    private Integer orderId;
+    private String orderId;
     private String user;
     private Integer credits;
     private List<Optional<Advertisement_video>> advertisement_videos;
@@ -40,7 +40,7 @@ public class OrderHistoryDTO {
     /**
      * @param orderId the orderId to set
      */
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
     /**
@@ -79,7 +79,7 @@ public class OrderHistoryDTO {
     /**
      * @return the orderId
      */
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
     /**

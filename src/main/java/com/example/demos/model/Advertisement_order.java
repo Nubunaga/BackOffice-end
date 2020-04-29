@@ -9,11 +9,11 @@ import javax.persistence.Table;
 public class Advertisement_order {
  @Id
  private Integer video;
- private Integer orders;
+ private String orders;
  private long start_time_epoch;
  private long end_time_epoch;
 
-public void newAdvOrder(Integer video, int orders,long start_time_epoch,
+public void newAdvOrder(Integer video, String orders,long start_time_epoch,
 long end_time_epoch)
 {
     setVideo(video);
@@ -32,7 +32,7 @@ private void setEnd_time_epoch(long end_time_epoch) {
 /**
  * @param orders the orders to set
  */
-private void setOrders(Integer orders) {
+private void setOrders(String orders) {
     this.orders = orders;
 }
 /**
@@ -59,7 +59,7 @@ public long getEnd_time_epoch() {
 /**
  * @return the orders
  */
-public Integer getOrders() {
+public String getOrders() {
     return orders;
 }
 /**

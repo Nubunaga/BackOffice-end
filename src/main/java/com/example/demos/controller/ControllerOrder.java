@@ -1,16 +1,3 @@
-/*
-      * JSON Structure:
-     * { OrderId: "1",
-     *   UserName: "SolStrom"
-     *   Credits: 100 //Kronor
-     *   video: [{interest:3,length:13 URL: "URL1"}
-     *           ,{interest:3,length:13 URL: "URL1"}
-     *   ]
-     *   Startdate: "YYYY-MM-DD" //Convert to epoch
-     *   Enddate: "YYYY-MM-DD"  //Convert to epoch
-     * }
- */
-
 package com.example.demos.controller;
 
 import java.text.ParseException;
@@ -87,9 +74,9 @@ public class ControllerOrder {
             jwtDecoder.jwtDecode(authorization);
             Order order =jsonHandler.newOrder(orderJson);
             orderrep.save(order);
-            return "New order saved";
+            return order.getID();
         } catch (Exception e) {
-            return e.toString();
+            return e.getMessage();
         }
     }
 

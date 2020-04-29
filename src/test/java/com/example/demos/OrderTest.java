@@ -2,6 +2,8 @@ package com.example.demos;
 
 import static org.junit.Assert.*;
 
+import java.util.UUID;
+
 import com.example.demos.model.Order;
 import com.example.demos.utils.Config;
 
@@ -24,23 +26,21 @@ class OrderTest {
 
     @Test
     public void addOrderTest(){
-        int testId = 1;
         int testCedits = 12;
         String testUser = "user";
-
-        this.order.addNewOrder(testId, testCedits, testUser);
-        assertTrue("Id is incorrect",this.order.getID() == testId);
+        String id = (String) UUID.randomUUID().toString();
+        this.order.addNewOrder(id, testCedits, testUser);
         assertTrue("Credits is incorrect",this.order.getCredits() == testCedits);
         assertTrue("User is incorrect",this.order.getUser() == testUser);
     }
 
     @Test
     public void addOrderIllegalArgumentTest(){
-        int testId = 1;
+        String id = (String) UUID.randomUUID().toString();
         int testCedits = 12;
         String testUser = null;
         try {
-            this.order.addNewOrder(testId, testCedits, testUser);
+            this.order.addNewOrder(id, testCedits, testUser);
         } catch (Exception e) {
             assertTrue("Wrong exception caught", e instanceof IllegalArgumentException);
         }

@@ -1,5 +1,7 @@
 package com.example.demos.model;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "orders")
 public class Order {
     @Id
-    private Integer id;
+    private String id;
     private Integer credits;
     private String users;
 
@@ -28,14 +30,14 @@ public class Order {
      * @param credits           The given credit to spend on the advertisment.
      * @param user              The user that ordered this advertisment.
      */
-    public void addNewOrder(int id,int credits,String user){
-        if(id <= 0 || credits < 0 || user == null) throw new IllegalArgumentException();
+    public void addNewOrder(String id,int credits,String user){
+        if(id ==null || credits < 0 || user == null) throw new IllegalArgumentException();
         this.id = id;
         this.credits = credits;
         this.users = user;
      }
 
-     public Integer getID(){
+     public String getID(){
          return id;
      }
 
@@ -57,7 +59,7 @@ public class Order {
      /**
       * @param id the id to set
       */
-     public void setId(Integer id) {
+     public void setId(String id) {
          this.id = id;
      }
 

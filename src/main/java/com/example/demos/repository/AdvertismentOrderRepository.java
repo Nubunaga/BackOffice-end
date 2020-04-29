@@ -10,7 +10,7 @@ import java.util.*;
  * This will be AUTO IMPLEMENTED by Spring into a Bean called 
  * Advertisment_videoCRUD refers Create, Read, Update, Delete
  */
-public interface AdvertismentOrderRepository extends CrudRepository<Advertisement_order, Integer> {
-    List<Advertisement_order> findByOrders(Integer orders);
-    List<Advertisement_order> findDistinctByOrders(Integer orders);
+public interface AdvertismentOrderRepository extends CrudRepository<Advertisement_order, String> {
+    List<Advertisement_order> findByOrders(String orders);
+    List<Advertisement_order> findDistinctByOrders(String orders);
 }
