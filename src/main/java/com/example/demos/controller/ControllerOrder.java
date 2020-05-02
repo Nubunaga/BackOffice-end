@@ -68,8 +68,6 @@ public class ControllerOrder {
         try {      
             jwtDecoder.jwtDecode(authorization);
             return jsonHandler.newOrder(orderJson);
-        } catch (ExpiredJwtException e) {
-            return "{\"code\":401,\"Message\":\"User token expired\"}";
         }
         catch(Exception e){
             return e.getMessage();
