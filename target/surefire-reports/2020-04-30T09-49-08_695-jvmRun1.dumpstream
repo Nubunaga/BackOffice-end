@@ -1,0 +1,2156 @@
+# Created at 2020-04-30T09:50:24.687
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:396)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+
+# Created at 2020-04-30T09:50:27.760
+Unexpected IOException with stream: 2020-04-30 09:50:27.756 ERROR 105724 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:354) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:554) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.2.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:98) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$5(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:342) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1624) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:336) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:252) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:362) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:251) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:29) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:75) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) ~[surefire-booter-2.22.0.jar:2.22.0]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	... 111 common frames omitted
+Caused by: java.net.ConnectException: Connection timed out: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:589) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:648) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	... 114 common frames omitted
+
+
+
+# Created at 2020-04-30T09:50:27.764
+Unexpected IOException with stream: 2020-04-30 09:50:27.763  WARN 105724 --- [           main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+
+
+# Created at 2020-04-30T09:50:27.766
+Unexpected IOException with stream: 2020-04-30 09:50:27.765  WARN 105724 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+
+
+# Created at 2020-04-30T09:50:27.771
+Unexpected IOException with stream: 2020-04-30 09:50:27.770  INFO 105724 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+
+
+# Created at 2020-04-30T09:50:27.774
+Unexpected IOException with stream: 2020-04-30 09:50:27.773 ERROR 105724 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:98) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$5(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:342) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1624) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:336) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:252) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:362) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:251) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:29) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:75) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) ~[surefire-booter-2.22.0.jar:2.22.0]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	... 78 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	... 95 common frames omitted
+
+
+
+# Created at 2020-04-30T09:50:27.777
+Unexpected IOException with stream: 2020-04-30 09:50:27.776 ERROR 105724 --- [           main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@4ce1d6d0] to prepare test instance [com.example.demos.ControllerAdvertismentTest@478530cb]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:98) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$5(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:342) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:337) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1624) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:336) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:252) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:362) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:251) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:29) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.5.2.jar:5.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:107) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:75) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.5.2.jar:1.5.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90) ~[junit-platform-launcher-1.2.0.jar:1.2.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117) ~[surefire-junit-platform-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125) ~[surefire-booter-2.22.0.jar:2.22.0]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417) ~[surefire-booter-2.22.0.jar:2.22.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:126) ~[spring-boot-test-2.2.6.RELEASE.jar:2.2.6.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	... 63 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1202) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1233) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	... 78 common frames omitted
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:54) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:137) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]
+	... 95 common frames omitted
+
+
+
+# Created at 2020-04-30T09:50:27.779
+Unexpected IOException: 5,1,com.example.demos.ControllerAdvertismentTest,addVideoTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:27.781
+Unexpected IOException: 7,1,com.example.demos.ControllerAdvertismentTest,addVideoTest,null,Failed to load ApplicationContext,null,Failed to load ApplicationContext,ControllerAdvertismentTest.addVideoTest \00BB IllegalState Failed to load Applicat...,java.lang.IllegalStateException: Failed to load ApplicationContext\000ACaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]\000ACaused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]\000ACaused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set\000A
+
+
+# Created at 2020-04-30T09:50:27.785
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.ControllerAdvertismentTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:27.788
+Unexpected IOException: 1,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.ControllerOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:27.795
+Unexpected IOException with stream: 2020-04-30 09:50:27.794  INFO 105724 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.demos.ControllerOrderTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+
+
+# Created at 2020-04-30T09:50:27.810
+Unexpected IOException with stream: 2020-04-30 09:50:27.809  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demos.DemossApplication for test class com.example.demos.ControllerOrderTest
+
+
+# Created at 2020-04-30T09:50:27.813
+Unexpected IOException with stream: 2020-04-30 09:50:27.812  INFO 105724 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+
+
+# Created at 2020-04-30T09:50:27.815
+Unexpected IOException with stream: 2020-04-30 09:50:27.813  INFO 105724 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fa9692b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@710afd47, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@64420e34, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@667a467f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@324e8baa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1488a861, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@604f376a, org.springframework.test.context.event.EventPublishingTestExecutionListener@5432dca2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@12670e55, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@43fd77d8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5a90fcaa, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1805ec96, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32ba5c65]
+
+
+# Created at 2020-04-30T09:50:27.866
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:27.867
+Unexpected IOException with stream:   .   ____          _            __ _ _
+
+
+# Created at 2020-04-30T09:50:27.868
+Unexpected IOException with stream:  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+
+
+# Created at 2020-04-30T09:50:27.870
+Unexpected IOException with stream: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+
+
+# Created at 2020-04-30T09:50:27.871
+Unexpected IOException with stream:  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+
+
+# Created at 2020-04-30T09:50:27.872
+Unexpected IOException with stream:   '  |____| .__|_| |_|_| |_\__, | / / / /
+
+
+# Created at 2020-04-30T09:50:27.874
+Unexpected IOException with stream:  =========|_|==============|___/=/_/_/_/
+
+
+# Created at 2020-04-30T09:50:27.875
+Unexpected IOException with stream:  :: Spring Boot ::        (v2.2.6.RELEASE)
+
+
+# Created at 2020-04-30T09:50:27.877
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:27.888
+Unexpected IOException with stream: 2020-04-30 09:50:27.887  INFO 105724 --- [           main] com.example.demos.ControllerOrderTest    : Starting ControllerOrderTest on Netanel-Dator with PID 105724 (started by Netanel in C:\Users\Netanel\Desktop\test\test4\BackOffice-end)
+
+
+# Created at 2020-04-30T09:50:27.891
+Unexpected IOException with stream: 2020-04-30 09:50:27.889  INFO 105724 --- [           main] com.example.demos.ControllerOrderTest    : The following profiles are active: @spring.profiles.active@
+
+
+# Created at 2020-04-30T09:50:28.910
+Unexpected IOException with stream: 2020-04-30 09:50:28.909  INFO 105724 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+
+
+# Created at 2020-04-30T09:50:29.527
+Unexpected IOException with stream: 2020-04-30 09:50:29.526  INFO 105724 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+
+
+# Created at 2020-04-30T09:50:29.529
+Unexpected IOException with stream: 2020-04-30 09:50:29.528  INFO 105724 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+
+
+# Created at 2020-04-30T09:50:29.558
+Unexpected IOException with stream: 2020-04-30 09:50:29.556  INFO 105724 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 26 ms
+
+
+# Created at 2020-04-30T09:50:29.627
+Unexpected IOException with stream: 2020-04-30 09:50:29.624  INFO 105724 --- [           main] com.example.demos.ControllerOrderTest    : Started ControllerOrderTest in 1.803 seconds (JVM running for 79.877)
+
+
+# Created at 2020-04-30T09:50:29.643
+Unexpected IOException: 5,1,com.example.demos.ControllerOrderTest,addOrderFailTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:29.820
+Unexpected IOException with stream: 2020-04-30 09:50:29.819  WARN 105724 --- [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.String com.example.demos.controller.ControllerOrder.newOrder(java.lang.String,java.lang.String) throws java.text.ParseException]
+
+
+# Created at 2020-04-30T09:50:29.850
+Unexpected IOException: 6,1,com.example.demos.ControllerOrderTest,addOrderFailTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:29.857
+Unexpected IOException: 5,1,com.example.demos.ControllerOrderTest,addOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:29.918
+Unexpected IOException: 6,1,com.example.demos.ControllerOrderTest,addOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:29.924
+Unexpected IOException: 5,1,com.example.demos.ControllerOrderTest,getHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:30.008
+Unexpected IOException: 6,1,com.example.demos.ControllerOrderTest,getHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:30.011
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.ControllerOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:30.017
+Unexpected IOException: 1,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.JsonHandlerTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:30.022
+Unexpected IOException with stream: 2020-04-30 09:50:30.021  INFO 105724 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.demos.JsonHandlerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+
+
+# Created at 2020-04-30T09:50:30.028
+Unexpected IOException with stream: 2020-04-30 09:50:30.026  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demos.DemossApplication for test class com.example.demos.JsonHandlerTest
+
+
+# Created at 2020-04-30T09:50:30.034
+Unexpected IOException with stream: 2020-04-30 09:50:30.032  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+
+
+# Created at 2020-04-30T09:50:30.039
+Unexpected IOException with stream: 2020-04-30 09:50:30.038  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@155c7eae, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c9e6d95, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5d00b469, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@dd07be8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7b8fcdf2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@54d2f5d3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@c29b0dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@228958a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7cd3860, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@44f23927, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@59cde35, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@43de9fc9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2d3eb1ea]
+
+
+# Created at 2020-04-30T09:50:30.096
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:30.099
+Unexpected IOException with stream:   .   ____          _            __ _ _
+
+
+# Created at 2020-04-30T09:50:30.100
+Unexpected IOException with stream:  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+
+
+# Created at 2020-04-30T09:50:30.102
+Unexpected IOException with stream: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+
+
+# Created at 2020-04-30T09:50:30.108
+Unexpected IOException with stream:  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+
+
+# Created at 2020-04-30T09:50:30.109
+Unexpected IOException with stream:   '  |____| .__|_| |_|_| |_\__, | / / / /
+
+
+# Created at 2020-04-30T09:50:30.111
+Unexpected IOException with stream:  =========|_|==============|___/=/_/_/_/
+
+
+# Created at 2020-04-30T09:50:30.115
+Unexpected IOException with stream:  :: Spring Boot ::        (v2.2.6.RELEASE)
+
+
+# Created at 2020-04-30T09:50:30.121
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:30.128
+Unexpected IOException with stream: 2020-04-30 09:50:30.127  INFO 105724 --- [           main] com.example.demos.JsonHandlerTest        : Starting JsonHandlerTest on Netanel-Dator with PID 105724 (started by Netanel in C:\Users\Netanel\Desktop\test\test4\BackOffice-end)
+
+
+# Created at 2020-04-30T09:50:30.137
+Unexpected IOException with stream: 2020-04-30 09:50:30.136  INFO 105724 --- [           main] com.example.demos.JsonHandlerTest        : The following profiles are active: @spring.profiles.active@
+
+
+# Created at 2020-04-30T09:50:30.649
+Unexpected IOException with stream: 2020-04-30 09:50:30.648  INFO 105724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+
+# Created at 2020-04-30T09:50:30.704
+Unexpected IOException with stream: 2020-04-30 09:50:30.703  INFO 105724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52ms. Found 3 JPA repository interfaces.
+
+
+# Created at 2020-04-30T09:50:31.110
+Unexpected IOException with stream: 2020-04-30 09:50:31.109  INFO 105724 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+
+
+# Created at 2020-04-30T09:50:31.131
+Unexpected IOException with stream: 2020-04-30 09:50:31.129  INFO 105724 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+
+
+# Created at 2020-04-30T09:50:31.138
+Unexpected IOException with stream: 2020-04-30 09:50:31.134  WARN 105724 --- [           main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+
+
+# Created at 2020-04-30T09:50:32.142
+Unexpected IOException with stream: 2020-04-30 09:50:32.141  INFO 105724 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+
+
+# Created at 2020-04-30T09:50:32.179
+Unexpected IOException with stream: 2020-04-30 09:50:32.178  INFO 105724 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+# Created at 2020-04-30T09:50:33.662
+Unexpected IOException with stream: 2020-04-30 09:50:33.661  INFO 105724 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+
+# Created at 2020-04-30T09:50:33.684
+Unexpected IOException with stream: 2020-04-30 09:50:33.676  INFO 105724 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+
+# Created at 2020-04-30T09:50:35.172
+Unexpected IOException with stream: 2020-04-30 09:50:35.170  WARN 105724 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+
+# Created at 2020-04-30T09:50:35.640
+Unexpected IOException with stream: 2020-04-30 09:50:35.633  INFO 105724 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+
+
+# Created at 2020-04-30T09:50:36.353
+Unexpected IOException with stream: 2020-04-30 09:50:36.352  INFO 105724 --- [           main] com.example.demos.JsonHandlerTest        : Started JsonHandlerTest in 6.308 seconds (JVM running for 86.605)
+
+
+# Created at 2020-04-30T09:50:36.366
+Unexpected IOException: 5,1,com.example.demos.JsonHandlerTest,newVideoNoVideoTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.384
+Unexpected IOException: 6,1,com.example.demos.JsonHandlerTest,newVideoNoVideoTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.387
+Unexpected IOException: 5,1,com.example.demos.JsonHandlerTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.398
+Unexpected IOException: 6,1,com.example.demos.JsonHandlerTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.401
+Unexpected IOException: 5,1,com.example.demos.JsonHandlerTest,newVideoAddTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.852
+Unexpected IOException: 6,1,com.example.demos.JsonHandlerTest,newVideoAddTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.854
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.JsonHandlerTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.856
+Unexpected IOException: 1,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.OrderHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:36.863
+Unexpected IOException with stream: 2020-04-30 09:50:36.861  INFO 105724 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.demos.OrderHistoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+
+
+# Created at 2020-04-30T09:50:36.867
+Unexpected IOException with stream: 2020-04-30 09:50:36.866  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demos.DemossApplication for test class com.example.demos.OrderHistoryTest
+
+
+# Created at 2020-04-30T09:50:36.872
+Unexpected IOException with stream: 2020-04-30 09:50:36.870  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+
+
+# Created at 2020-04-30T09:50:36.873
+Unexpected IOException with stream: 2020-04-30 09:50:36.872  INFO 105724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2aacf54b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7a2b3cfd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@33602729, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3638120f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bf3bf2e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@581cb879, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6a77953c, org.springframework.test.context.event.EventPublishingTestExecutionListener@1c294a17, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7a458c73, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@47a72c32, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@112f8f8f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4700064f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@11703cc8]
+
+
+# Created at 2020-04-30T09:50:36.880
+Unexpected IOException: 5,1,com.example.demos.OrderHistoryTest,getOrderHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.300
+Unexpected IOException with stream: com.example.demos.exceptions.NoUserFoundException: No user with name Netanel found
+
+# Created at 2020-04-30T09:50:37.302
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.303
+Unexpected IOException with stream: 	at com.example.demos.model.OrderHistory.getHistory(OrderHistory.java:51)
+
+# Created at 2020-04-30T09:50:37.305
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.307
+Unexpected IOException with stream: 	at com.example.demos.OrderHistoryTest.getOrderHistoryTest(OrderHistoryTest.java:39)
+
+# Created at 2020-04-30T09:50:37.308
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.310
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+# Created at 2020-04-30T09:50:37.311
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.313
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+# Created at 2020-04-30T09:50:37.315
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.316
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+# Created at 2020-04-30T09:50:37.317
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.320
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+
+# Created at 2020-04-30T09:50:37.322
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.323
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+
+# Created at 2020-04-30T09:50:37.325
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.328
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+
+# Created at 2020-04-30T09:50:37.332
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.334
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+
+# Created at 2020-04-30T09:50:37.336
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.338
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+
+# Created at 2020-04-30T09:50:37.339
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.340
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+
+# Created at 2020-04-30T09:50:37.342
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.345
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+
+# Created at 2020-04-30T09:50:37.347
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.364
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+
+# Created at 2020-04-30T09:50:37.366
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.369
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2020-04-30T09:50:37.371
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.372
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+
+# Created at 2020-04-30T09:50:37.378
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.401
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+
+# Created at 2020-04-30T09:50:37.425
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.442
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+
+# Created at 2020-04-30T09:50:37.444
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.446
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+
+# Created at 2020-04-30T09:50:37.448
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.449
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2020-04-30T09:50:37.451
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.454
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+
+# Created at 2020-04-30T09:50:37.455
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.458
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+
+# Created at 2020-04-30T09:50:37.460
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.462
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.466
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.469
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+
+# Created at 2020-04-30T09:50:37.470
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.474
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+
+# Created at 2020-04-30T09:50:37.476
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.478
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+
+# Created at 2020-04-30T09:50:37.479
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.483
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+
+# Created at 2020-04-30T09:50:37.484
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.486
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.489
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.490
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.491
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.494
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.495
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.497
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.498
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.499
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.502
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.504
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.509
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.510
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.513
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.516
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:37.517
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.519
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:37.521
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.525
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:37.526
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.527
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.536
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.545
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.547
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.548
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.568
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.570
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.572
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.573
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.575
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.576
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.579
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.580
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.583
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.584
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:37.587
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.588
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:37.589
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.591
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:37.593
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.595
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.596
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.599
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.600
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.602
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.603
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.605
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.606
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.612
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.614
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.615
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.628
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.629
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.631
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.634
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+
+# Created at 2020-04-30T09:50:37.635
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.637
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2020-04-30T09:50:37.638
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.639
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+
+# Created at 2020-04-30T09:50:37.641
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.642
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+
+# Created at 2020-04-30T09:50:37.643
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.644
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+
+# Created at 2020-04-30T09:50:37.646
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.647
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+
+# Created at 2020-04-30T09:50:37.649
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.650
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2020-04-30T09:50:37.651
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.654
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2020-04-30T09:50:37.655
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.656
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+
+# Created at 2020-04-30T09:50:37.664
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.665
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+
+# Created at 2020-04-30T09:50:37.669
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.671
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+
+# Created at 2020-04-30T09:50:37.672
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.673
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2020-04-30T09:50:37.675
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.682
+Unexpected IOException: 6,1,com.example.demos.OrderHistoryTest,getOrderHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.685
+Unexpected IOException: 5,1,com.example.demos.OrderHistoryTest,orderHistoryInformationTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.704
+Unexpected IOException with stream: com.example.demos.exceptions.NoUserFoundException: No user with name SolStrom found
+
+# Created at 2020-04-30T09:50:37.705
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.706
+Unexpected IOException with stream: 	at com.example.demos.model.OrderHistory.getHistory(OrderHistory.java:51)
+
+# Created at 2020-04-30T09:50:37.707
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.709
+Unexpected IOException with stream: 	at com.example.demos.OrderHistoryTest.orderHistoryInformationTest(OrderHistoryTest.java:59)
+
+# Created at 2020-04-30T09:50:37.710
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.712
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+# Created at 2020-04-30T09:50:37.713
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.714
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+# Created at 2020-04-30T09:50:37.715
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.717
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+# Created at 2020-04-30T09:50:37.718
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.719
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+
+# Created at 2020-04-30T09:50:37.720
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.721
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+
+# Created at 2020-04-30T09:50:37.722
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.724
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+
+# Created at 2020-04-30T09:50:37.725
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.726
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+
+# Created at 2020-04-30T09:50:37.727
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.728
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+
+# Created at 2020-04-30T09:50:37.729
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.731
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+
+# Created at 2020-04-30T09:50:37.732
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.733
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+
+# Created at 2020-04-30T09:50:37.735
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.736
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+
+# Created at 2020-04-30T09:50:37.737
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.738
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2020-04-30T09:50:37.739
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.740
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+
+# Created at 2020-04-30T09:50:37.742
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.743
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+
+# Created at 2020-04-30T09:50:37.746
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.747
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+
+# Created at 2020-04-30T09:50:37.749
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.751
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+
+# Created at 2020-04-30T09:50:37.753
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.755
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2020-04-30T09:50:37.756
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.762
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+
+# Created at 2020-04-30T09:50:37.767
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.768
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+
+# Created at 2020-04-30T09:50:37.770
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.772
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.773
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.774
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+
+# Created at 2020-04-30T09:50:37.775
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.777
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+
+# Created at 2020-04-30T09:50:37.778
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.780
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+
+# Created at 2020-04-30T09:50:37.781
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.782
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+
+# Created at 2020-04-30T09:50:37.783
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.785
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.786
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.788
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.789
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.790
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.792
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.794
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.795
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.798
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.801
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.804
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.807
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.810
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.812
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.817
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:37.822
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.825
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:37.829
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.831
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:37.833
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.835
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.836
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.837
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.841
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.842
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.843
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.844
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.845
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.847
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.849
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.851
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.852
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.853
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.854
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.856
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:37.857
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.858
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:37.859
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.862
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:37.864
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.865
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.866
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.867
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:37.870
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.873
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:37.878
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.880
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:37.883
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.885
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:37.887
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.888
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:37.891
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.892
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:37.894
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.895
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+
+# Created at 2020-04-30T09:50:37.896
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.898
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2020-04-30T09:50:37.899
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.900
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+
+# Created at 2020-04-30T09:50:37.902
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.904
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+
+# Created at 2020-04-30T09:50:37.905
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.906
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+
+# Created at 2020-04-30T09:50:37.907
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.908
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+
+# Created at 2020-04-30T09:50:37.910
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.913
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2020-04-30T09:50:37.914
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.915
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2020-04-30T09:50:37.916
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.917
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+
+# Created at 2020-04-30T09:50:37.919
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.920
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+
+# Created at 2020-04-30T09:50:37.921
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.922
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+
+# Created at 2020-04-30T09:50:37.923
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.925
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2020-04-30T09:50:37.926
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:37.930
+Unexpected IOException: 6,1,com.example.demos.OrderHistoryTest,orderHistoryInformationTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.934
+Unexpected IOException: 5,1,com.example.demos.OrderHistoryTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.941
+Unexpected IOException: 6,1,com.example.demos.OrderHistoryTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.944
+Unexpected IOException: 5,1,com.example.demos.OrderHistoryTest,getOrderHistoryNoUserTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.980
+Unexpected IOException: 6,1,com.example.demos.OrderHistoryTest,getOrderHistoryNoUserTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:37.984
+Unexpected IOException: 5,1,com.example.demos.OrderHistoryTest,orderHistoryDateTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.002
+Unexpected IOException with stream: com.example.demos.exceptions.NoUserFoundException: No user with name Netanel found
+
+# Created at 2020-04-30T09:50:38.003
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.005
+Unexpected IOException with stream: 	at com.example.demos.model.OrderHistory.getHistory(OrderHistory.java:51)
+
+# Created at 2020-04-30T09:50:38.006
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.007
+Unexpected IOException with stream: 	at com.example.demos.OrderHistoryTest.orderHistoryDateTest(OrderHistoryTest.java:71)
+
+# Created at 2020-04-30T09:50:38.008
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.009
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+# Created at 2020-04-30T09:50:38.011
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.012
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+# Created at 2020-04-30T09:50:38.013
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.014
+Unexpected IOException with stream: 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+# Created at 2020-04-30T09:50:38.016
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.017
+Unexpected IOException with stream: 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+
+# Created at 2020-04-30T09:50:38.019
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.020
+Unexpected IOException with stream: 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
+
+# Created at 2020-04-30T09:50:38.021
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.022
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+
+# Created at 2020-04-30T09:50:38.023
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.025
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
+
+# Created at 2020-04-30T09:50:38.026
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.026
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
+
+# Created at 2020-04-30T09:50:38.027
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.029
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
+
+# Created at 2020-04-30T09:50:38.030
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.032
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
+
+# Created at 2020-04-30T09:50:38.033
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.034
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+
+# Created at 2020-04-30T09:50:38.035
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.036
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+
+# Created at 2020-04-30T09:50:38.037
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.039
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
+
+# Created at 2020-04-30T09:50:38.040
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.041
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
+
+# Created at 2020-04-30T09:50:38.042
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.043
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
+
+# Created at 2020-04-30T09:50:38.044
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.045
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
+
+# Created at 2020-04-30T09:50:38.046
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.047
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+
+# Created at 2020-04-30T09:50:38.048
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.049
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+
+# Created at 2020-04-30T09:50:38.050
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.056
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
+
+# Created at 2020-04-30T09:50:38.057
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.059
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.060
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.061
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
+
+# Created at 2020-04-30T09:50:38.063
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.065
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+
+# Created at 2020-04-30T09:50:38.066
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.067
+Unexpected IOException with stream: 	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+
+# Created at 2020-04-30T09:50:38.068
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.069
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+
+# Created at 2020-04-30T09:50:38.071
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.072
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.073
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.073
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:38.074
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.075
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:38.076
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.077
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:38.079
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.080
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.081
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.082
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:38.083
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.085
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:38.086
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.087
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:38.087
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.089
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:38.090
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.091
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:38.092
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.093
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.094
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.095
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:38.096
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.097
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:38.098
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.100
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:38.101
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.102
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.103
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.104
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:38.105
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.106
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:38.107
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.108
+Unexpected IOException with stream: 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+
+# Created at 2020-04-30T09:50:38.109
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.110
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+
+# Created at 2020-04-30T09:50:38.110
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.112
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+
+# Created at 2020-04-30T09:50:38.113
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.114
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.115
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.116
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+
+# Created at 2020-04-30T09:50:38.116
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.117
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+
+# Created at 2020-04-30T09:50:38.118
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.119
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+
+# Created at 2020-04-30T09:50:38.120
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.121
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+
+# Created at 2020-04-30T09:50:38.122
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.123
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+
+# Created at 2020-04-30T09:50:38.124
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.125
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+
+# Created at 2020-04-30T09:50:38.126
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.127
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+
+# Created at 2020-04-30T09:50:38.128
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.129
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+
+# Created at 2020-04-30T09:50:38.130
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.131
+Unexpected IOException with stream: 	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+
+# Created at 2020-04-30T09:50:38.132
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.133
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
+
+# Created at 2020-04-30T09:50:38.135
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.136
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
+
+# Created at 2020-04-30T09:50:38.137
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.138
+Unexpected IOException with stream: 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
+
+# Created at 2020-04-30T09:50:38.138
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.140
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:142)
+
+# Created at 2020-04-30T09:50:38.141
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.142
+Unexpected IOException with stream: 	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:117)
+
+# Created at 2020-04-30T09:50:38.143
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.144
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+
+# Created at 2020-04-30T09:50:38.145
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.146
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+
+# Created at 2020-04-30T09:50:38.147
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.148
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+
+# Created at 2020-04-30T09:50:38.149
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.151
+Unexpected IOException with stream: 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+
+# Created at 2020-04-30T09:50:38.152
+Unexpected IOException with stream: 
+
+
+# Created at 2020-04-30T09:50:38.156
+Unexpected IOException: 6,1,com.example.demos.OrderHistoryTest,orderHistoryDateTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.158
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.OrderHistoryTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.160
+Unexpected IOException: 1,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.OrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.163
+Unexpected IOException: 5,1,com.example.demos.OrderTest,addOrderIllegalArgumentTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.165
+Unexpected IOException: 6,1,com.example.demos.OrderTest,addOrderIllegalArgumentTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.167
+Unexpected IOException: 5,1,com.example.demos.OrderTest,addOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.170
+Unexpected IOException: 6,1,com.example.demos.OrderTest,addOrderTest,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.171
+Unexpected IOException: 5,1,com.example.demos.OrderTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.173
+Unexpected IOException: 6,1,com.example.demos.OrderTest,contextLoad,null,null,null
+
+
+# Created at 2020-04-30T09:50:38.174
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.example.demos.OrderTest,null,null,null
+
+

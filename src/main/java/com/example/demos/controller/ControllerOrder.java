@@ -7,9 +7,7 @@ import org.springframework.http.HttpStatus;
 import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
 import com.example.demos.model.JsonHandler;
-import com.example.demos.model.Order;
 import com.example.demos.model.OrderHistory;
-import com.example.demos.repository.OrderRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,9 +43,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class ControllerOrder {
 
     @Autowired
-    private OrderRepository orderrep;
-
-    @Autowired
     private JsonHandler jsonHandler;
 
     @Autowired
@@ -73,7 +68,10 @@ public class ControllerOrder {
         try {      
             jwtDecoder.jwtDecode(authorization);
             return jsonHandler.newOrder(orderJson);
-        } catch (Exception e) {
+        } catch (ExpiredJwtException e) {
+            return "{\"code\":401,\"Message\":\"User token expired\"}";
+        }
+        catch(Exception e){
             return e.getMessage();
         }
     }
