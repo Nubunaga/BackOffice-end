@@ -1,6 +1,7 @@
 package com.example.demos.controller;
 
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 
@@ -106,12 +107,12 @@ public class ControllerOrder {
      */
     @GetMapping(path ="/intrests")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody String getInterest(@RequestHeader String authorization){
+    public @ResponseBody Iterable<Interests> getInterest(@RequestHeader String authorization){
 
         try {
             jwtDecoder.jwtDecode(authorization);
-           Iterable<Interests> interests = interestsRepository.findAll();
-            return interests.toString();
+            Iterable<Interests> interests = interestsRepository.findAll();
+            return interests;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No interest found at the moment");
         }

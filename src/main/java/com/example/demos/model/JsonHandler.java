@@ -2,11 +2,13 @@ package com.example.demos.model;
 
 import java.text.ParseException;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.UUID;
 
 import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
+import com.example.demos.repository.InterestsRepository;
 import com.example.demos.repository.OrderRepository;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -48,8 +50,12 @@ public class JsonHandler {
     @Autowired
     private AdvertismentOrderRepository advertismentOrderRepository;
 
+    @Autowired 
+    private InterestsRepository interestsRepository;
+
     private String  orderid;
     private String startTime, endTime;
+    private HashMap<String,Integer>  map;
 
     /**
      * This class handles the initial calls for a new order. Takes the Json string
@@ -68,6 +74,8 @@ public class JsonHandler {
         JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
         Order order = new Order();
 
+        createHashMap();
+
         this.orderid = UUID.randomUUID().toString();
         credits = jsonObject.get("credits").getAsInt();
         userName = jsonObject.get("user").getAsString();
@@ -80,6 +88,7 @@ public class JsonHandler {
         return order.getID();
     }
 
+    
     public String addNewVideo(String Json) throws Exception {
         try {
             JsonObject jsonObject = JsonParser.parseString(Json).getAsJsonObject();
@@ -94,7 +103,7 @@ public class JsonHandler {
             return e.getMessage();
         }
     }
-
+    
     /**
      * This method adds a new video of there is one!
      * 
@@ -102,26 +111,27 @@ public class JsonHandler {
      * @throws ParseException
      */
     private void addVideo(JsonArray jsonArray) throws ParseException {
+        
         for (int i = 0; i < jsonArray.size(); i++) {
             Advertisement_video aVideo = new Advertisement_video();
             String[] array = openJson((JsonObject) jsonArray.get(i));
-            aVideo.addNewAdv(Integer.parseInt(array[1]), Integer.parseInt(array[2]), array[0]);
+            aVideo.addNewAdv(map.get(array[1]), Integer.parseInt(array[2]), array[0]);
             advertismentRepository.save(aVideo);
             advOrder(aVideo);
         }
     }
-
+    
     private void advOrder(Advertisement_video aVideo) throws ParseException {
         Advertisement_order advOrder = new Advertisement_order();
         advOrder.newAdvOrder(aVideo.getID(), this.orderid, epochConv(this.startTime), epochConv(this.endTime));
         advertismentOrderRepository.save(advOrder);
     }
-
+    
     private long epochConv(String time) throws ParseException {
         long epoch = Instant.parse(time).toEpochMilli()/1000;
         return epoch;
     }
-
+    
     /**
      * Takes the individual object and divides into the different parts needed.
      * 
@@ -130,11 +140,17 @@ public class JsonHandler {
      */
     private String[] openJson(JsonObject jsonElement) {
         String[] array = new String[3];
-       array[0] = jsonElement.get("url").getAsString();
-       array[1] = jsonElement.get("interest").getAsString();
-       array[2] = jsonElement.get("length").getAsString();
-       return array;
+        array[0] = jsonElement.get("url").getAsString();
+        array[1] = jsonElement.get("interest").getAsString();
+        array[2] = jsonElement.get("length").getAsString();
+        return array;
     }
-
-
+    
+    private void createHashMap() {
+        Iterable<Interests> list = interestsRepository.findAll();
+        for(Interests l:list){
+            map.put(l.getString(),l.getId());
+        }
+    }
+    
 }
