@@ -4,6 +4,7 @@ import com.example.demos.Security.JWTDecoder;
 import com.example.demos.controller.ControllerOrder;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.OrderHistory;
+import com.example.demos.repository.InterestsRepository;
 import com.example.demos.repository.OrderRepository;
 import com.example.demos.utils.Config;
 
@@ -41,6 +42,9 @@ public class ControllerOrderTest {
     private JsonHandler jsonHandler;
     @MockBean
     private OrderHistory orderHistory;
+
+    @MockBean
+    private InterestsRepository interestsRepository;
     
     @MockBean
     private JWTDecoder jwtDecoder;

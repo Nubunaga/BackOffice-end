@@ -6,8 +6,10 @@ import org.springframework.http.HttpStatus;
 
 import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
+import com.example.demos.model.Interests;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.OrderHistory;
+import com.example.demos.repository.InterestsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +53,9 @@ public class ControllerOrder {
     @Autowired
     private JWTDecoder jwtDecoder;
 
+    @Autowired 
+    private InterestsRepository interestsRepository;
+
     /**
      * This method handles the handling of a new order that is sent, it is a post
      * mapping thus the order can be found as a json object in the data part of the
@@ -90,6 +95,25 @@ public class ControllerOrder {
             return list;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "History can not be reached atm");
+        }
+    }
+
+    /**
+     * Returns the current active intresst known in the database by communication 
+     * with hybernate.
+     * @param authorization         JWT-token used to authorize the user calling
+     * @return                      A list of interrest.
+     */
+    @GetMapping(path ="/intrests")
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody String getInterest(@RequestHeader String authorization){
+
+        try {
+            jwtDecoder.jwtDecode(authorization);
+           Iterable<Interests> interests = interestsRepository.findAll();
+            return interests.toString();
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No interest found at the moment");
         }
     }
 }
