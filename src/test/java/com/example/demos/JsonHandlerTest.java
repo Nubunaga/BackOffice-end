@@ -26,7 +26,7 @@ public class JsonHandlerTest {
     @MockBean
     private JWTDecoder jwtDecoder;
     
-    String json = "{\"id\":9999,\"user\":\"Netanel\",\"credits\":10,\"video\":" + "[{\"interest\":Sport,\"length\":9999,\"url\":\"URL\"}],"
+    String json = "{\"id\":9999,\"user\":\"Netanel\",\"credits\":10,\"video\":" + "[{\"interest\":\"Sport\",\"length\":9999,\"url\":\"URL\"}],"
             + "\"Startdate\":\"2020-04-17T00:03:14.100z\"," + "\"Enddate\":\"2020-06-17T00:03:14.100z\"}";
 
     String jsonNoVideo = "{\"id\":9999,\"user\":\"Netanel\",\"credits\":10,\"video\":" + "[],"
