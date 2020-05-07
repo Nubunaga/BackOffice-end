@@ -55,7 +55,7 @@ public class JsonHandler {
 
     private String  orderid;
     private String startTime, endTime;
-    private HashMap<String,Integer>  map;
+    private HashMap<String,Integer>  map = new HashMap<>();
 
     /**
      * This class handles the initial calls for a new order. Takes the Json string
@@ -115,7 +115,8 @@ public class JsonHandler {
         for (int i = 0; i < jsonArray.size(); i++) {
             Advertisement_video aVideo = new Advertisement_video();
             String[] array = openJson((JsonObject) jsonArray.get(i));
-            aVideo.addNewAdv(map.get(array[1]), Integer.parseInt(array[2]), array[0]);
+            System.out.print(this.map.get(array[1]));
+            aVideo.addNewAdv(this.map.get(array[1]), Integer.parseInt(array[2]), array[0]);
             advertismentRepository.save(aVideo);
             advOrder(aVideo);
         }
@@ -149,7 +150,7 @@ public class JsonHandler {
     private void createHashMap() {
         Iterable<Interests> list = interestsRepository.findAll();
         for(Interests l:list){
-            map.put(l.getString(),l.getId());
+           this.map.put(l.getString(),l.getId());
         }
     }
     

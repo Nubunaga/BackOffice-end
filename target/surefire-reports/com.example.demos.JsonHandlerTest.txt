@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.example.demos.JsonHandlerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.855 s - in com.example.demos.JsonHandlerTest
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.876 s <<< FAILURE! - in com.example.demos.JsonHandlerTest
+newVideoAddTest  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: Something went wrong
+	at com.example.demos.JsonHandlerTest.newVideoAddTest(JsonHandlerTest.java:47)
+
