@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatus;
 
 import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
-import com.example.demos.model.Interests;
+import com.example.demos.model.Interest;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.OrderHistory;
-import com.example.demos.repository.InterestsRepository;
+import com.example.demos.repository.InterestRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,7 +55,7 @@ public class ControllerOrder {
     private JWTDecoder jwtDecoder;
 
     @Autowired 
-    private InterestsRepository interestsRepository;
+    private InterestRepository interestsRepository;
 
     /**
      * This method handles the handling of a new order that is sent, it is a post
@@ -107,11 +107,11 @@ public class ControllerOrder {
      */
     @GetMapping(path ="/intrests")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody Iterable<Interests> getInterest(@RequestHeader String authorization){
+    public @ResponseBody Iterable<Interest> getInterest(@RequestHeader String authorization){
 
         try {
             jwtDecoder.jwtDecode(authorization);
-            Iterable<Interests> interests = interestsRepository.findAll();
+            Iterable<Interest> interests = interestsRepository.findAll();
             return interests;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No interest found at the moment");

@@ -8,7 +8,7 @@ import java.util.UUID;
 import com.example.demos.exceptions.NoVideoException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
-import com.example.demos.repository.InterestsRepository;
+import com.example.demos.repository.InterestRepository;
 import com.example.demos.repository.OrderRepository;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -51,7 +51,7 @@ public class JsonHandler {
     private AdvertismentOrderRepository advertismentOrderRepository;
 
     @Autowired 
-    private InterestsRepository interestsRepository;
+    private InterestRepository interestsRepository;
 
     private String  orderid;
     private String startTime, endTime;
@@ -150,8 +150,8 @@ public class JsonHandler {
     }
     
     private void createHashMap() {
-        Iterable<Interests> list = interestsRepository.findAll();
-        for(Interests l:list){
+        Iterable<Interest> list = interestsRepository.findAll();
+        for(Interest l:list){
            this.map.put(l.getString(),l.getId());
         }
     }

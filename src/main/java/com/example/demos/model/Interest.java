@@ -15,7 +15,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-public class Interests {
+public class Interest {
 
     @Id
     private Integer id;
@@ -25,8 +25,8 @@ public class Interests {
         this.id = id;
     }
 
-    public void  interest(String interest){
-        this.name = interest;
+    public void name(String name){
+        this.name = name;
     }
 
     public Integer getId(){
