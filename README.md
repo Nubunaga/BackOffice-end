@@ -16,7 +16,7 @@ This is the server side implementation of the backoffice client microservice tha
 
 **POST** a json object in body
 Json structure: 
-<code>
+```
 {
 "user":<email>,
 "credits":<Integer>,
@@ -25,7 +25,7 @@ Json structure:
  "Startdate":<Date ISO>,
  "Enddate":<Date ISO>
 }
-</code>
+```
 Responds:
   * Status **201** and an order id if done!
   * Status **400** if Json format is incorrect or no video is added
@@ -36,7 +36,7 @@ Responds:
 
 **GET** parameter id that 
   request parameter :
-  <code> username: <userName> </code
+  ``` username: <userName>```
   Rsponds:
   * Status **200** if a history is found and returns a list of orders.
   * Status **404** if no user is found
