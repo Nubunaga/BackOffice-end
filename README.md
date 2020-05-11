@@ -29,7 +29,7 @@ Json structure:
 Responds:
   * Status **201** and an order id if done!
   * Status **400** if Json format is incorrect or no video is added
-  * Status **401** if your token is expired or wrong for the application.
+  * Status **401** if your token is expired or not autherized for the application. See response message!
   * Status **500** if something went wrong inside the server
 
 * **/order/history**
