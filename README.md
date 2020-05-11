@@ -15,14 +15,39 @@ This is the server side implementation of the backoffice client microservice tha
 * **/order/add** 
 
 **POST** a json object in body
+Json structure: 
+<code>
+{
+"user":<email>,
+"credits":<Integer>,
+"video":[{"interest":<interest>,
+"length":<Integer>,"url":<URL>}],
+ "Startdate":<Date ISO>,
+ "Enddate":<Date ISO>
+}
+</code>
+Responds:
+  * Status **201** and an order id if done!
+  * Status **400** if Json format is incorrect or no video is added
+  * Status **401** if your token is expired or wrong for the application.
+  * Status **500** if something went wrong inside the server
 
 * **/order/history**
 
 **GET** parameter id that 
+  request parameter :
+  <code> username: <userName> </code
+  Rsponds:
+  * Status **200** if a history is found and returns a list of orders.
+  * Status **404** if no user is found
+  * Status **500** if something went wrong inside the server
 
 * **/order/intrests**
 
 **GET** No param
+Responds
+* Status **200** if a history is found and returns a list of orders.
+* Status **404** if no user is found
 
 ## Enviroment
 This code is written in java with the framework <b><em> Spring </em></b> to create a connection to the database and structuring the program. The website enviroment we use to deploy the API is on heruko.
