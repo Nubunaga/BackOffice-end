@@ -89,6 +89,8 @@ contains the filés for some of the drivers to work for java 8 but are not impor
 <b>DTO:</b>
 contains all the api's data tranferable objects.
 
+<b>Security</b> contains the JWT decoder taking the token and verifing it against the public key
+
 ## Pom.xml 
 Is the file that the mvn project is built uppon and list all the dependencies, project information, artifacts after compilations and maven declarations that is needed to compile this java program using maven.
 
