@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import com.example.demos.exceptions.NoVideoException;
+import com.example.demos.exceptions.WrongJsonFormatException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
 import com.example.demos.repository.InterestRepository;
@@ -56,47 +57,55 @@ public class JsonHandler {
     private String  orderid;
     private String startTime, endTime;
     private HashMap<String,Integer>  map = new HashMap<>();
+    private Integer credits;
+    private String userName;
 
     /**
      * This class handles the initial calls for a new order. Takes the Json string
      * and takes all the information from it to be used.
      * 
      * @param orderJson Contains the order in JSON string format.
-     * @param flag Is there if there is a need to test the method.
      * @return The order to be saved into the database.
-     * @throws ParseException if the convertion does not contain integer.
+     * @throws Exception
      */
-    public String newOrder(String orderJson) throws ParseException {
+    public String newOrder(String orderJson) throws Exception {
         if(orderJson == null) throw new IllegalArgumentException();
         JsonObject jsonObject = JsonParser.parseString(orderJson).getAsJsonObject();
-        int credits;
-        String userName;
         JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
-        Order order = new Order();
-
+        
         createHashMap();
+        
+        try {
+            splitJsonObject(jsonObject);
+        } catch (Exception e) {
+            throw new WrongJsonFormatException("Json format incorrect: Check Json Structure");
+        }
 
-        this.orderid = UUID.randomUUID().toString();
-        credits = jsonObject.get("credits").getAsInt();
-        userName = jsonObject.get("user").getAsString();
-        this.startTime = jsonObject.get("Startdate").getAsString();
-        this.endTime = jsonObject.get("Enddate").getAsString();
-
-        order.addNewOrder(this.orderid, credits, userName);
-        orderrep.save(order);
+        String id = addOrder();
         if(jsonarray.size() != 0) addVideo(jsonarray);
-        return order.getID();
+        return id;
     }
 
-    
+    /**
+     * Add a single new video to the current or comming order.
+     * @param Json                  Video Json object.
+     * @return                      String with "saved" as confirmation.
+     * @throws Exception            If there is a Json format error, throw.
+     */
     public String addNewVideo(String Json) throws Exception {
         createHashMap();
+        JsonArray jsonarray;
         try {
             JsonObject jsonObject = JsonParser.parseString(Json).getAsJsonObject();
-            this.orderid = jsonObject.get("id").getAsString();
-            this.startTime = jsonObject.get("Startdate").getAsString();
-            this.endTime = jsonObject.get("Enddate").getAsString();
-            JsonArray jsonarray = jsonObject.get("video").getAsJsonArray();
+            try {         
+                this.orderid = UUID.randomUUID().toString();
+                this.startTime = jsonObject.get("Startdate").getAsString();
+                this.endTime = jsonObject.get("Enddate").getAsString();
+                jsonarray = jsonObject.get("video").getAsJsonArray();
+            } catch (Exception e) {
+                throw new WrongJsonFormatException("Json format incorrect: Check Json Structure");
+            }
+
             if(jsonarray.size() == 0) throw new NoVideoException("no video found");
             addVideo(jsonarray);
             return "Saved";
@@ -104,22 +113,41 @@ public class JsonHandler {
             return e.getMessage();
         }
     }
+
+    private String addOrder() throws Exception {
+        if(orderrep.findById(this.orderid).isPresent()) throw new Exception("ID already existent");
+        Order order = new Order();
+        order.addNewOrder(this.orderid, this.credits, this.userName);
+        orderrep.save(order);
+        return order.getID();
+    }
     
     /**
      * This method adds a new video of there is one!
      * 
      * @param jsonArray contains the JSON array
      * @throws ParseException
+     * @throws WrongJsonFormatException
      */
-    private void addVideo(JsonArray jsonArray) throws ParseException {
+    private void addVideo(JsonArray jsonArray) throws ParseException, WrongJsonFormatException {
         
         for (int i = 0; i < jsonArray.size(); i++) {
             Advertisement_video aVideo = new Advertisement_video();
-            String[] array = openJson((JsonObject) jsonArray.get(i));
-            System.out.print(this.map.get(array[1]));
+            String[] array;
+
+            try {
+                array = openJson((JsonObject) jsonArray.get(i));
+            } catch (Exception e) {
+                throw new WrongJsonFormatException("Json format incorrect: Check Json Structure");
+            }
             aVideo.addNewAdv(this.map.get(array[1]), Integer.parseInt(array[2]), array[0]);
+
             advertismentRepository.save(aVideo);
-            advOrder(aVideo);
+            try {
+                advOrder(aVideo);
+            } catch (Exception e) {
+
+            }
         }
     }
     
@@ -155,4 +183,11 @@ public class JsonHandler {
         }
     }
     
+    private void splitJsonObject(JsonObject jsonObject){
+        this.orderid = UUID.randomUUID().toString();
+        this.credits = jsonObject.get("credits").getAsInt();
+        this.userName = jsonObject.get("user").getAsString();
+        this.startTime = jsonObject.get("Startdate").getAsString();
+        this.endTime = jsonObject.get("Enddate").getAsString();
+    }
 }

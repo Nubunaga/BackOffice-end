@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.example.demos.model.*;
 
-public interface OrderRepository extends CrudRepository<Order, Integer> {
+public interface OrderRepository extends CrudRepository<Order,String> {
     
     List<Order> findByuser(String user);
 }

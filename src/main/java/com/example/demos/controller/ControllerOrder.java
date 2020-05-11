@@ -1,12 +1,15 @@
 package com.example.demos.controller;
 
 import java.text.ParseException;
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 
 import com.example.demos.Security.JWTDecoder;
 import com.example.demos.dto.OrderHistoryDTO;
+import com.example.demos.exceptions.NoUserFoundException;
+import com.example.demos.exceptions.NoVideoException;
+import com.example.demos.exceptions.WrongAuthLevelException;
+import com.example.demos.exceptions.WrongJsonFormatException;
 import com.example.demos.model.Interest;
 import com.example.demos.model.JsonHandler;
 import com.example.demos.model.OrderHistory;
@@ -70,13 +73,22 @@ public class ControllerOrder {
     @PostMapping(path = "/add")
     @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
     public @ResponseBody String newOrder(@RequestBody String orderJson, @RequestHeader String authorization)
-            throws ParseException {
+            throws Exception {
         try {      
             jwtDecoder.jwtDecode(authorization);
             return jsonHandler.newOrder(orderJson);
         }
+        catch(WrongJsonFormatException wJFE){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, wJFE.getMessage());
+        }
+        catch(NoVideoException nVE){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, nVE.getMessage());
+        }
+        catch(WrongAuthLevelException wALE){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, wALE.getMessage());
+        }
         catch(Exception e){
-            return e.getMessage();
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
         }
     }
 
@@ -94,8 +106,12 @@ public class ControllerOrder {
             jwtDecoder.jwtDecode(authorization);
             List<OrderHistoryDTO> list = orderHistory.getHistory(userName);
             return list;
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "History can not be reached atm");
+        } catch(NoUserFoundException nUFE) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No history is found for user " +userName);
+        }
+        
+        catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
 

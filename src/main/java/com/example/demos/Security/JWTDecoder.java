@@ -38,9 +38,12 @@ public class JWTDecoder {
              .setSigningKey(keys.getPublic());
              jws.parse(key);
         } catch (JwtException e) {
-            System.out.println(e);
+            if(e instanceof ExpiredJwtException) 
+                throw new WrongAuthLevelException("JWT token expired", e);
+                System.out.println(e);
             throw new WrongAuthLevelException("User not allowed", e);
         }
+
     }
 
 }

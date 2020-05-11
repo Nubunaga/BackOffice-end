@@ -68,7 +68,7 @@ public class OrderHistoryTest {
 
         OrderHistoryDTO oDTO;
         try {
-            oDTO = orderHistory.getHistory("Netanel").get(1);
+            oDTO = orderHistory.getHistory("Netanel").get(0);
             assertTrue("A orderHistory is not in epoch time", oDTO.getStartDate().contains("-") && oDTO.getEndDate().contains("-"));
         } catch (Exception e) {
             e.printStackTrace();
