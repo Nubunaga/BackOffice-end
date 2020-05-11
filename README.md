@@ -20,6 +20,10 @@ This is the server side implementation of the backoffice client microservice tha
 
 **GET** parameter id that 
 
+* **/order/intrests**
+
+**GET** No param
+
 ## Enviroment
 This code is written in java with the framework <b><em> Spring </em></b> to create a connection to the database and structuring the program. The website enviroment we use to deploy the API is on heruko.
 
