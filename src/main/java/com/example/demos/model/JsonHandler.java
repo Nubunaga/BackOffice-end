@@ -2,7 +2,9 @@ package com.example.demos.model;
 
 import java.text.ParseException;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import com.example.demos.exceptions.NoVideoException;
@@ -92,13 +94,13 @@ public class JsonHandler {
      * @return                      String with "saved" as confirmation.
      * @throws Exception            If there is a Json format error, throw.
      */
-    public String addNewVideo(String Json) throws Exception {
+    public List<Integer> addNewVideo(String Json) throws Exception {
         createHashMap();
         JsonArray jsonarray;
         try {
             JsonObject jsonObject = JsonParser.parseString(Json).getAsJsonObject();
             try {         
-                this.orderid = UUID.randomUUID().toString();
+                this.orderid = jsonObject.get("orderID").getAsString();
                 this.startTime = jsonObject.get("Startdate").getAsString();
                 this.endTime = jsonObject.get("Enddate").getAsString();
                 jsonarray = jsonObject.get("video").getAsJsonArray();
@@ -107,10 +109,14 @@ public class JsonHandler {
             }
 
             if(jsonarray.size() == 0) throw new NoVideoException("no video found");
-            addVideo(jsonarray);
-            return "Saved";
-        } catch (Exception e) {
-            return e.getMessage();
+            
+            return addVideo(jsonarray);
+        }
+        catch(NoVideoException nVE){
+            throw new NoVideoException("no video found");
+        }
+        catch (Exception e) {
+            throw new Exception("internal server error");
         }
     }
 
@@ -129,8 +135,8 @@ public class JsonHandler {
      * @throws ParseException
      * @throws WrongJsonFormatException
      */
-    private void addVideo(JsonArray jsonArray) throws ParseException, WrongJsonFormatException {
-        
+    private List<Integer> addVideo(JsonArray jsonArray) throws ParseException, WrongJsonFormatException {
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < jsonArray.size(); i++) {
             Advertisement_video aVideo = new Advertisement_video();
             String[] array;
@@ -144,11 +150,13 @@ public class JsonHandler {
 
             advertismentRepository.save(aVideo);
             try {
-                advOrder(aVideo);
+            advOrder(aVideo);
             } catch (Exception e) {
 
             }
+            list.add(aVideo.getID());
         }
+        return list;
     }
     
     private void advOrder(Advertisement_video aVideo) throws ParseException {

@@ -45,7 +45,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Controller
 @RequestMapping(path = "/order")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ControllerOrder {
 
     @Autowired
@@ -102,13 +102,17 @@ public class ControllerOrder {
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName, @RequestHeader String authorization)
     {   
-        try {     
+        try {
+            if(userName == null) throw new IllegalArgumentException("Username is null");
             jwtDecoder.jwtDecode(authorization);
             List<OrderHistoryDTO> list = orderHistory.getHistory(userName);
             return list;
         } catch(NoUserFoundException nUFE) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No history is found for user " +userName);
         }
+         catch(IllegalArgumentException iAE){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"UserName can not be null");
+         }
         
         catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());

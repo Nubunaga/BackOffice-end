@@ -1,7 +1,12 @@
 package com.example.demos.controller;
 
 import com.example.demos.repository.*;
+
+import java.util.List;
+
 import com.example.demos.Security.JWTDecoder;
+import com.example.demos.exceptions.NoVideoException;
+import com.example.demos.exceptions.WrongJsonFormatException;
 import com.example.demos.model.JsonHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -53,12 +57,21 @@ public class ControllerAdvertisment {
      */
     @PostMapping(path="/add")
     @ResponseStatus(HttpStatus.CREATED)//201
-    public @ResponseBody String addAdv(@RequestBody String jsonString,@RequestHeader String authorization){
+    public @ResponseBody List<Integer> addAdv(@RequestBody String jsonString,@RequestHeader String authorization){
             try {
                 jwtDecoder.jwtDecode(authorization);
                 return jsonHandler.addNewVideo(jsonString);
-            } catch (Exception e) {
-                return e.toString();
+            } 
+            catch(WrongJsonFormatException wJFE){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, wJFE.getMessage());
+            }
+
+            catch(NoVideoException nVE){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, nVE.getMessage());
+            }
+            
+            catch (Exception e) {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
             }
     }
     /**
