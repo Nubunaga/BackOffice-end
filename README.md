@@ -4,15 +4,15 @@
 This is the server side implementation of the backoffice client microservice that handles the call to the database, orderflow and user information to be used by the frontend application of the backoffice.
 
 ## Endpoints
-### * **/advert/add**
+###  **/advert/add**
 
 <b>POST</b> a json object in body
 
-### * **/advert/delete**
+###  **/advert/delete**
 
 **GET** parameter id that deletes the video
 
- ### * **/order/add** 
+ ###  **/order/add** 
 
 **POST** a json object in body
 Json structure: 
@@ -32,7 +32,7 @@ Responds:
   * Status **401** if your token is expired or not autherized for the application. See response message!
   * Status **500** if something went wrong inside the server
 
-### * **/order/history**
+### **/order/history**
 
 **GET** parameter id that 
   request parameter :
@@ -42,7 +42,7 @@ Responds:
   * Status **404** if no user is found
   * Status **500** if something went wrong inside the server
 
-### * **/order/intrests**
+###  **/order/intrests**
 
 **GET** No param
 Responds
