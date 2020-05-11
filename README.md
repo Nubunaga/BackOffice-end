@@ -7,11 +7,27 @@ This is the server side implementation of the backoffice client microservice tha
 ###  **/advert/add**
 
 <b>POST</b> a json object in body
+Json structure:
+```
+"orderID": <UUID>,
+"video":[{"interest":<interest>,
+"length":<Integer>,"url":<URL>}],
+"Startdate: <ISO>,
+"Enddate: <ISO>
+```
+Respons:
+  * Status **201** and List of video ID to the user
+  * Status **400** if Json format is incorrect or no video is added
+  * tatus **500** if something went wrong inside the server
 
 ###  **/advert/delete**
 
 **GET** parameter id that deletes the video
-
+Params:
+``` id: <videoId> ```
+Respons:
+ * Status **204** and video is deleted.
+ * Status **500** if error is internal server error.
  ###  **/order/add** 
 
 **POST** a json object in body
