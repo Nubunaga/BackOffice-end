@@ -39,6 +39,7 @@ Responds:
   ``` username: <userName>```
   Rsponds:
   * Status **200** if a history is found and returns a list of orders.
+  * Status **400** if the userName is null.
   * Status **404** if no user is found
   * Status **500** if something went wrong inside the server
 
