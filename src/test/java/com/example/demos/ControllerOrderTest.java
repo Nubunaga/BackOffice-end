@@ -78,7 +78,7 @@ public class ControllerOrderTest {
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/order/add")
         .contentType(MediaType.APPLICATION_JSON)
-        .header("authorization", "Testing");
+        .header("Auth-Token", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(created);
@@ -93,7 +93,7 @@ public class ControllerOrderTest {
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/order/history")
         .param("userName", "Netanel")
-        .header("authorization", "Testing");
+        .header("Auth-Token", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(ok)

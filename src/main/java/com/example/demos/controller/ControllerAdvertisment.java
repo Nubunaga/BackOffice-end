@@ -57,7 +57,7 @@ public class ControllerAdvertisment {
      */
     @PostMapping(path="/add")
     @ResponseStatus(HttpStatus.CREATED)//201
-    public @ResponseBody List<Integer> addAdv(@RequestBody String jsonString,@RequestHeader String authorization){
+    public @ResponseBody List<Integer> addAdv(@RequestBody String jsonString, @RequestHeader(value = "Auth-Token", required = false) String authorization){
             try {
                 jwtDecoder.jwtDecode(authorization);
                 return jsonHandler.addNewVideo(jsonString);
@@ -81,7 +81,7 @@ public class ControllerAdvertisment {
      */
     @GetMapping(path="/delete")
     @ResponseStatus(HttpStatus.NO_CONTENT)//204
-    public @ResponseBody String deleteAdv(@RequestParam int id,@RequestHeader String authorization){
+    public @ResponseBody String deleteAdv(@RequestParam int id, @RequestHeader(value = "Auth-Token", required = false)  String authorization){
         try {
             jwtDecoder.jwtDecode(authorization);
             advertismentRepository.deleteById(id);

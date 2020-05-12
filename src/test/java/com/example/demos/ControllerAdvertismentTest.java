@@ -48,7 +48,7 @@ public class ControllerAdvertismentTest {
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/advert/add")
         .contentType(MediaType.APPLICATION_JSON)
         .content(json)
-        .header("authorization", "Testing");
+        .header("Auth-Token", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(code);
@@ -62,7 +62,7 @@ public class ControllerAdvertismentTest {
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/advert/delete")
         .param("id", "6")
-        .header("authorization", "Testing");
+        .header("Auth-Token", "Testing");
 
         this.mockMvc.perform(builder)
         .andExpect(code)

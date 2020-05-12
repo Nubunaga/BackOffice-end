@@ -72,7 +72,7 @@ public class ControllerOrder {
      */
     @PostMapping(path = "/add")
     @ResponseStatus(HttpStatus.CREATED) // 201 if created correctly
-    public @ResponseBody String newOrder(@RequestBody String orderJson, @RequestHeader String authorization)
+    public @ResponseBody String newOrder(@RequestBody String orderJson,@RequestHeader(value = "Auth-Token", required = false) String authorization)
             throws Exception {
         try {      
             jwtDecoder.jwtDecode(authorization);
@@ -100,7 +100,7 @@ public class ControllerOrder {
      */
     @GetMapping(path = "/history")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName, @RequestHeader String authorization)
+    public @ResponseBody List<OrderHistoryDTO> getHistory(@RequestParam String userName, @RequestHeader(value = "Auth-Token", required = false)  String authorization)
     {   
         try {
             if(userName == null) throw new IllegalArgumentException("Username is null");
@@ -127,7 +127,7 @@ public class ControllerOrder {
      */
     @GetMapping(path ="/intrests")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody Iterable<Interest> getInterest(@RequestHeader String authorization){
+    public @ResponseBody Iterable<Interest> getInterest( @RequestHeader(value = "Auth-Token", required = false)  String authorization){
 
         try {
             jwtDecoder.jwtDecode(authorization);
