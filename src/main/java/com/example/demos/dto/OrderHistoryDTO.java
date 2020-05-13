@@ -86,7 +86,7 @@ public class OrderHistoryDTO {
     /**
      * @return the advertisement_videos
      */
-    public List<Optional<Advertisement_video>> getAdvertisement_videos() {
+    public List<Played> getAdvertisement_videos() {
         return advertisement_videos;
     }
     /**

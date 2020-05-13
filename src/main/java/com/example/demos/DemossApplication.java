@@ -15,10 +15,10 @@ public class DemossApplication {
 		SpringApplication app = new SpringApplication(DemossApplication.class);
 
 		Properties properties = new Properties();
-		// properties.put("spring.datasource.username", System.getenv("SQLName"));
-		// properties.put("spring.datasource.password", System.getenv("SQLPass"));
-		// properties.put("spring.datasource.url", System.getenv("SQLServer"));
-		// app.setDefaultProperties(properties);
+		properties.put("spring.datasource.username", System.getenv("SQLName"));
+		properties.put("spring.datasource.password", System.getenv("SQLPass"));
+		properties.put("spring.datasource.url", System.getenv("SQLServer"));
+		app.setDefaultProperties(properties);
 		app.run(args);
 	}
 
