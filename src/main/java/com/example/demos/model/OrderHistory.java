@@ -27,6 +27,20 @@ import java.time.Instant;
 
  @Service
 public class OrderHistory {
+
+    public class Played{
+        private Optional<Advertisement_video> video;
+        private boolean played;
+        private Integer count;
+
+        public Played(Optional<Advertisement_video> video,Integer count,boolean played){
+            this.count = count;
+            this.played = played;
+            this.video = video;
+        }
+    }
+
+
     @Autowired
     private AdvertismentOrderRepository advRepoOrder;
 
@@ -35,6 +49,9 @@ public class OrderHistory {
 
     @Autowired
     private OrderRepository orderRepo;
+
+    @Autowired
+    private PlayedVideo playedVideo;
 
     /**
      * This methods builds the DTO from the given username by calling the crud
@@ -79,11 +96,19 @@ public class OrderHistory {
        return Instant.ofEpochMilli(res).toString();
     }
 
-    private List<Optional<Advertisement_video>> findVideo(Order o) {
-        List<Optional<Advertisement_video>> returnList = new ArrayList<>();
+    private List<Played> findVideo(Order o) {
+        List<Played> returnList = new ArrayList<>();
         List<Advertisement_order> list = advRepoOrder.findByOrders(o.getID());
             for(Advertisement_order ao: list){
-                returnList.add(advRepo.findById(ao.getVideo()));
+                Optional<Advertisement_video> video = advRepo.findById(ao.getVideo());
+                Integer count;
+                try {
+                     count = playedVideo.retriveVideoIsPlaying(video.get().getID());
+                } catch (Exception e) {
+                    count = 0;
+                }
+                boolean played = count > 0;
+                returnList.add(new Played(video,count,played));
             }
         return returnList;
     }

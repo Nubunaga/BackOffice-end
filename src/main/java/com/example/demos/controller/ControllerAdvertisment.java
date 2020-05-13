@@ -2,12 +2,16 @@ package com.example.demos.controller;
 
 import com.example.demos.repository.*;
 
+
 import java.util.List;
 
 import com.example.demos.Security.JWTDecoder;
 import com.example.demos.exceptions.NoVideoException;
+
 import com.example.demos.exceptions.WrongJsonFormatException;
+
 import com.example.demos.model.JsonHandler;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,5 +94,6 @@ public class ControllerAdvertisment {
             return e.toString();
         }
     }
+
 
 }

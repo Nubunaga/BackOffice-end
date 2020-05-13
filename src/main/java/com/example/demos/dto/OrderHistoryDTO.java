@@ -1,4 +1,5 @@
 package com.example.demos.dto;
+
 /**
  * This class is the DTO for the orderhistory and will be the one sent to the calle
  * to show all of the history.
@@ -8,6 +9,8 @@ package com.example.demos.dto;
  */
 
 import com.example.demos.model.Advertisement_video;
+import com.example.demos.model.OrderHistory.Played;
+
 import java.util.*;
 
 public class OrderHistoryDTO {
@@ -15,15 +18,39 @@ public class OrderHistoryDTO {
     private String orderId;
     private String user;
     private Integer credits;
-    private List<Optional<Advertisement_video>> advertisement_videos;
+    private List<Played> advertisement_videos;
     private String startDate;
     private String endDate;
+    private boolean played;
+    private Integer count;
 
     /**
-     * @param advertisement_videos the advertisement_videos to set
+     * @param count the count to set
      */
-    public void setAdvertisement_videos(List<Optional<Advertisement_video>> advertisement_videos) {
-        this.advertisement_videos = advertisement_videos;
+    public void setCount(Integer count) {
+        this.count = count;
+    }/**
+     * @param played the played to set
+     */
+    public void setPlayed(boolean played) {
+        this.played = played;
+    }
+    /**
+     * @return the count
+     */
+    public Integer getCount() {
+        return count;
+    }
+
+    public boolean getPlayed(){
+        return played;
+    }
+
+    /**
+     * @param list the advertisement_videos to set
+     */
+    public void setAdvertisement_videos(List<Played> list) {
+        this.advertisement_videos = list;
     }
     /**
      * @param credits the credits to set

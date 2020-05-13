@@ -120,7 +120,7 @@ public class ControllerOrder {
     }
 
     /**
-     * Returns the current active intresst known in the database by communication 
+     * Returns the current active intresst known in the database by communication
      * with hybernate.
      * @param authorization         JWT-token used to authorize the user calling
      * @return                      A list of interrest.
