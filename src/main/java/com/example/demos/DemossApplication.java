@@ -18,6 +18,7 @@ public class DemossApplication {
 		properties.put("spring.datasource.username", System.getenv("SQLName"));
 		properties.put("spring.datasource.password", System.getenv("SQLPass"));
 		properties.put("spring.datasource.url", System.getenv("SQLServer"));
+		System.out.println("connecting to db: " +properties.getProperty("spring.datasource.url"));
 		app.setDefaultProperties(properties);
 		app.run(args);
 	}

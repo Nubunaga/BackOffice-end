@@ -8,9 +8,6 @@ package com.example.demos.dto;
  * @version 0.0.1
  */
 
-import com.example.demos.model.Advertisement_video;
-import com.example.demos.model.OrderHistory.Played;
-
 import java.util.*;
 
 public class OrderHistoryDTO {
@@ -18,38 +15,14 @@ public class OrderHistoryDTO {
     private String orderId;
     private String user;
     private Integer credits;
-    private List<Played> advertisement_videos;
+    private List<PlayedDTO> advertisement_videos;
     private String startDate;
     private String endDate;
-    private boolean played;
-    private Integer count;
-
-    /**
-     * @param count the count to set
-     */
-    public void setCount(Integer count) {
-        this.count = count;
-    }/**
-     * @param played the played to set
-     */
-    public void setPlayed(boolean played) {
-        this.played = played;
-    }
-    /**
-     * @return the count
-     */
-    public Integer getCount() {
-        return count;
-    }
-
-    public boolean getPlayed(){
-        return played;
-    }
 
     /**
      * @param list the advertisement_videos to set
      */
-    public void setAdvertisement_videos(List<Played> list) {
+    public void setAdvertisement_videos(List<PlayedDTO> list) {
         this.advertisement_videos = list;
     }
     /**
@@ -86,7 +59,7 @@ public class OrderHistoryDTO {
     /**
      * @return the advertisement_videos
      */
-    public List<Played> getAdvertisement_videos() {
+    public List<PlayedDTO> getAdvertisement_videos() {
         return advertisement_videos;
     }
     /**

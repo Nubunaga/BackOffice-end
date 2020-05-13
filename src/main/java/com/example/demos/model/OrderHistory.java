@@ -4,6 +4,7 @@ package com.example.demos.model;
 import java.util.*;
 
 import com.example.demos.dto.OrderHistoryDTO;
+import com.example.demos.dto.PlayedDTO;
 import com.example.demos.exceptions.NoUserFoundException;
 import com.example.demos.repository.AdvertismentOrderRepository;
 import com.example.demos.repository.AdvertismentRepository;
@@ -27,19 +28,6 @@ import java.time.Instant;
 
  @Service
 public class OrderHistory {
-
-    public class Played{
-        private Optional<Advertisement_video> video;
-        private boolean played;
-        private Integer count;
-
-        public Played(Optional<Advertisement_video> video,Integer count,boolean played){
-            this.count = count;
-            this.played = played;
-            this.video = video;
-        }
-    }
-
 
     @Autowired
     private AdvertismentOrderRepository advRepoOrder;
@@ -96,8 +84,8 @@ public class OrderHistory {
        return Instant.ofEpochMilli(res).toString();
     }
 
-    private List<Played> findVideo(Order o) {
-        List<Played> returnList = new ArrayList<>();
+    private List<PlayedDTO> findVideo(Order o) {
+        List<PlayedDTO> returnList = new ArrayList<>();
         List<Advertisement_order> list = advRepoOrder.findByOrders(o.getID());
             for(Advertisement_order ao: list){
                 Optional<Advertisement_video> video = advRepo.findById(ao.getVideo());
@@ -108,7 +96,7 @@ public class OrderHistory {
                     count = 0;
                 }
                 boolean played = count > 0;
-                returnList.add(new Played(video,count,played));
+                returnList.add(new PlayedDTO(video,count,played));
             }
         return returnList;
     }
