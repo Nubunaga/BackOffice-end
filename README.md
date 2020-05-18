@@ -1,4 +1,4 @@
-# BackOffice-end
+# BackOffice-end![Java testing CI with maven](https://github.com/Projektgrupp17/BackOffice-backend/workflows/Java%20testing%20CI%20with%20maven/badge.svg)
 
 ## Info
 This is the server side implementation of the backoffice client microservice that handles the call to the database, orderflow and user information to be used by the frontend application of the backoffice.
@@ -12,8 +12,6 @@ This code is written in java with the framework <b><em> Spring </em></b> to crea
 ## Test
 Is done each time the spring program is compiled since the command <code> mvn package </code> follows pom.xml file when compiled and thus tests all the files in the test directory before creating the jar
 The test files can be found inside <i> src/test/java/com/example/demos </i>
-
-![Java testing CI with maven](https://github.com/Projektgrupp17/BackOffice-backend/workflows/Java%20testing%20CI%20with%20maven/badge.svg)
 
 ## Structure
 The code structure follows the <em> MVC </em> architecture thus allowing for better structuring and truly seperate the classes.
