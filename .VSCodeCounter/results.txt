@@ -1,0 +1,76 @@
+Date : 2020-05-18 11:38:21
+Directory : c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src
+Total : 33 files,  1143 codes, 334 comments, 338 blanks, all 1815 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Java       |         32 |      1,136 |        334 |        337 |      1,807 |
+| Properties |          1 |          7 |          0 |          1 |          8 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                              |         33 |      1,143 |        334 |        338 |      1,815 |
+| main                                                                                                                           |         25 |        773 |        333 |        218 |      1,324 |
+| main\java                                                                                                                      |         24 |        766 |        333 |        217 |      1,316 |
+| main\java\com                                                                                                                  |         24 |        766 |        333 |        217 |      1,316 |
+| main\java\com\example                                                                                                          |         24 |        766 |        333 |        217 |      1,316 |
+| main\java\com\example\demos                                                                                                    |         24 |        766 |        333 |        217 |      1,316 |
+| main\java\com\example\demos\Security                                                                                           |          1 |         36 |          0 |         13 |         49 |
+| main\java\com\example\demos\controller                                                                                         |          2 |        147 |         61 |         31 |        239 |
+| main\java\com\example\demos\dto                                                                                                |          2 |         77 |         55 |         19 |        151 |
+| main\java\com\example\demos\exceptions                                                                                         |          5 |         44 |         12 |         17 |         73 |
+| main\java\com\example\demos\model                                                                                              |          8 |        402 |        197 |        107 |        706 |
+| main\java\com\example\demos\repository                                                                                         |          5 |         43 |          8 |         20 |         71 |
+| main\resources                                                                                                                 |          1 |          7 |          0 |          1 |          8 |
+| test                                                                                                                           |          8 |        370 |          1 |        120 |        491 |
+| test\java                                                                                                                      |          8 |        370 |          1 |        120 |        491 |
+| test\java\com                                                                                                                  |          8 |        370 |          1 |        120 |        491 |
+| test\java\com\example                                                                                                          |          8 |        370 |          1 |        120 |        491 |
+| test\java\com\example\demos                                                                                                    |          8 |        370 |          1 |        120 |        491 |
+| test\java\com\example\demos\utils                                                                                              |          1 |         19 |          1 |          5 |         25 |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                       | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\DemossApplication.java                      | Java       |         17 |          0 |         10 |         27 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\Security\JWTDecoder.java                    | Java       |         36 |          0 |         13 |         49 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\controller\ControllerAdvertisment.java      | Java       |         57 |         25 |         17 |         99 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\controller\ControllerOrder.java             | Java       |         90 |         36 |         14 |        140 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\dto\OrderHistoryDTO.java                    | Java       |         46 |         43 |         10 |         99 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\dto\PlayedDTO.java                          | Java       |         31 |         12 |          9 |         52 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\NoOrderIdFoundException.java     | Java       |          7 |          0 |          4 |         11 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\NoUserFoundException.java        | Java       |          7 |          3 |          2 |         12 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\NoVideoException.java            | Java       |         10 |          3 |          3 |         16 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\WrongAuthLevelException.java     | Java       |         10 |          3 |          3 |         16 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\exceptions\WrongJsonFormatException.java    | Java       |         10 |          3 |          5 |         18 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Advertisement_order.java              | Java       |         45 |         24 |         10 |         79 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Advertisement_video.java              | Java       |         41 |         13 |         11 |         65 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Interest.java                         | Java       |         24 |         11 |          9 |         44 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\JsonHandler.java                      | Java       |        127 |         47 |         27 |        201 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Order.java                            | Java       |         40 |         24 |         13 |         77 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\OrderHistory.java                     | Java       |         69 |         19 |         18 |        106 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\PlayedVideo.java                      | Java       |         19 |         35 |         10 |         64 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\model\Played_video.java                     | Java       |         37 |         24 |          9 |         70 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\AdvertismentOrderRepository.java | Java       |          8 |          4 |          4 |         16 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\AdvertismentRepository.java      | Java       |          5 |          4 |          4 |         13 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\InterestRepository.java          | Java       |          5 |          0 |          2 |          7 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\OrderRepository.java             | Java       |          7 |          0 |          5 |         12 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\java\com\example\demos\repository\PlayedVideoRepository.java       | Java       |         18 |          0 |          5 |         23 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\main\resources\application.properties                                   | Properties |          7 |          0 |          1 |          8 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\AdverVideoTest.java                         | Java       |         38 |          0 |          9 |         47 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\ControllerAdvertismentTest.java             | Java       |         64 |          0 |         26 |         90 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\ControllerOrderTest.java                    | Java       |         78 |          0 |         25 |        103 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\JsonHandlerTest.java                        | Java       |         44 |          0 |         18 |         62 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\OrderHistoryTest.java                       | Java       |         64 |          0 |         17 |         81 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\OrderTest.java                              | Java       |         38 |          0 |         11 |         49 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\PlayedVideoTest.java                        | Java       |         25 |          0 |          9 |         34 |
+| c:\Users\Netanel\Desktop\test\test4\BackOffice-end\src\test\java\com\example\demos\utils\Config.java                           | Java       |         19 |          1 |          5 |         25 |
+| Total                                                                                                                          |            |      1,143 |        334 |        338 |      1,815 |
++--------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

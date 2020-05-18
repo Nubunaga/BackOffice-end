@@ -15,23 +15,6 @@ public class PlayedDTO {
         this.played = played;
         this.video = video;
     }
-
-    /**
-     * @param count the count to set
-     */
-    public void setCount(Integer count) {
-        this.count = count;
-    }/**
-     * @param played the played to set
-     */
-    public void setPlayed(boolean played) {
-        this.played = played;
-    }/**
-     * @param video the video to set
-     */
-    public void setVideo(Optional<Advertisement_video> video) {
-        this.video = video;
-    }
     /**
      * @return the count
      */

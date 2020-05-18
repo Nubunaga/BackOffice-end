@@ -19,9 +19,9 @@ public class Advertisement_video {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private int interest;
+    private Integer interest;
 
-    private int length_sec;
+    private Integer length_sec;
     
     private String url;
 
