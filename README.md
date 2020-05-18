@@ -4,67 +4,7 @@
 This is the server side implementation of the backoffice client microservice that handles the call to the database, orderflow and user information to be used by the frontend application of the backoffice.
 
 ## Endpoints
-###  **/advert/add**
-
-<b>POST</b> a json object in body
-Json structure:
-```
-"orderID": <UUID>,
-"video":[{"interest":<interest>,
-"length":<Integer>,"url":<URL>}],
-"Startdate: <ISO>,
-"Enddate: <ISO>
-```
-Respons:
-  * Status **201** and List of video ID to the user
-  * Status **400** if Json format is incorrect or no video is added
-  * tatus **500** if something went wrong inside the server
-
-###  **/advert/delete**
-
-**GET** parameter id that deletes the video
-Params:
-``` id: <videoId> ```
-Respons:
- * Status **204** and video is deleted.
- * Status **500** if error is internal server error.
- ###  **/order/add** 
-
-**POST** a json object in body
-Json structure: 
-```
-{
-"user":<email>,
-"credits":<Integer>,
-"video":[{"interest":<interest>,
-"length":<Integer>,"url":<URL>}],
- "Startdate":<Date ISO>,
- "Enddate":<Date ISO>
-}
-```
-Responds:
-  * Status **201** and an order id if done!
-  * Status **400** if Json format is incorrect or no video is added
-  * Status **401** if your token is expired or not autherized for the application. See response message!
-  * Status **500** if something went wrong inside the server
-
-### **/order/history**
-
-**GET** parameter id that 
-  request parameter :
-  ``` username: <userName>```
-  Rsponds:
-  * Status **200** if a history is found and returns a list of orders.
-  * Status **400** if the userName is null.
-  * Status **404** if no user is found
-  * Status **500** if something went wrong inside the server
-
-###  **/order/intrests**
-
-**GET** No param
-Responds
-* Status **200** if a history is found and returns a list of orders.
-* Status **404** if no user is found
+see [Endpoints](https://github.com/Projektgrupp17/BackOffice-backend/wiki/7-Endpoint)
 
 ## Enviroment
 This code is written in java with the framework <b><em> Spring </em></b> to create a connection to the database and structuring the program. The website enviroment we use to deploy the API is on heruko.
